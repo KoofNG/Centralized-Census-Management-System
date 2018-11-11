@@ -1,0 +1,304 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html,body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+@font-face{
+    font-family: "Roboto-Regular";
+    src: url("../fonts/Roboto/Roboto-Regular.ttf");
+}
+@font-face{
+    font-family: "Roboto-bold";
+    src: url("../fonts/Roboto/Roboto-Bold.ttf")
+}
+@font-face{
+    font-family: "Roboto-Light";
+    src: url("../fonts/Roboto/Roboto-Light.ttf")
+}
+@font-face{
+    font-family: "Font-Awesome";
+    src: url("../fonts/FontAwesome.otf");
+}
+
+/* For Mobile First View */
+@media only screen and (max-width: 767px){
+    body{
+        height: 100vh;
+        width: 100%;
+        display: block;
+        position: relative;
+    }
+    div#app{
+        height: 100vh;
+        width: 100%;
+        position: relative;
+        display: block;
+    }
+    div#tabs{
+        height: 100vh;
+        width: 100%;
+        position: relative;
+        display: block;
+    }
+    /* The Tabs */
+    div.tab{
+        display: none;
+        opacity: 0;
+    }
+    div.tab.active{
+        display: block;
+        height: 100vh;
+        width: 100%;
+        opacity: 1;
+        transition: opacity  0.3s;
+        position: relative;
+    }
+
+    /* Welcome Page */
+    div#welcome{
+        background: linear-gradient(45deg, rgba(255, 0, 0, 0.8),rgba(255,165,0,1));
+        height: 100vh;
+        width: 100%;
+        position: relative;
+        padding: 20px;
+        margin: 0;        
+    }
+    div.logo{
+        height: 120px;
+        width: 100%;
+        padding: 12.5px 0;
+        position: relative;
+        background-image: url("../images/OndoState.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: 50% 50%;
+    }
+    div.description{
+        height: auto;
+        width: 100%;
+        position: relative;
+        top: 35%;
+        transform: translateY(-35%);
+        padding: 20px 0;
+    }
+    h3.description{
+        font-family: "Roboto-Light";
+        font-size: 40px;
+        color: #ffffff;
+        letter-spacing: 0.5px;
+        padding: 10px 0;
+    }
+    p.body{
+        font-family: "Roboto-Light";
+        font-size: 20px;
+        color: #ffffff !important;
+        letter-spacing: 0.3px;
+        padding: 5px 0;
+    }
+
+    
+    div.imagery{
+        height: 280px;
+        width: 100%;
+        position: relative;
+        background-color: #ffffff;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: cover;
+    }
+    div.imagery::after{
+        position: absolute;
+        content: '';
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background: linear-gradient(45deg, rgba(255, 0, 0, 0.8),rgba(255,165,0,1));
+        opacity: 0.9;
+    }
+    h3.caption{
+        color: #ffffff;
+        z-index: 3;
+        position: absolute;
+        bottom: 10px;
+        left: 20px;
+        font-family: "Roboto-Light";
+        font-size: 18px;
+        letter-spacing: 0.5;
+    }
+    /* Each Tab Images */
+    div#persona{background-image: url("../images/kisspng.png");}
+    div#location{background-image: url("../images/locatio.jpg");}
+    div#general{background-image: url("../images/gr.png");}
+    div#profile{background-image: url("../images/grab.png");}
+    /* End of Each Tab Images */
+
+    div.formContent{
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        margin: 0;
+        display: block;
+    }
+    div.formContent>div{
+        height: auto;
+        width: 100%;
+    }
+    div.formContent>div:nth-child(odd){
+        margin: 4.5px 0;
+    }
+    div.formContent>div>label{
+        width: 100%;
+        height: auto;
+        padding: 1.5px 0;
+        color: #111111;
+        display: block;
+        position: relative;
+        font-family: "Roboto-Regular";
+        font-weight: lighter;
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+    div.formContent>div>input,select{
+        height: 35px;
+        width: 100%;
+        display: block;
+        position: relative;
+        outline: none;
+        border: 1px solid #cccccc;
+        background-color: transparent;
+        padding: 6.5px 10px;
+        font-size: 14px;
+        font-family: "Roboto-Light";
+    }
+    div.formContent>div>input[type=date]{
+        text-transform: uppercase;
+    }
+    div.formContent>div>input:focus,select:focus{
+        border-bottom: 1px solid rgb(255,165,0,1);
+    }
+    /* All Buttons */
+    div#button{
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 20px;
+        height: 40px;
+        width: 100%;
+        display: block;
+        padding: 0 20px;
+    }
+    div#buttons{
+        position: relative;
+        height: 40px;
+        width: 100%;
+        display: block;
+        padding: 0 20px;
+        margin-bottom: 20px;
+    }
+    button{
+        font-family: "Roboto-Light";
+        font-weight: 500;
+        font-size: 16px;
+        cursor: pointer;
+        outline: none;
+        border: none;
+        border-radius: 20px;
+        height: 100%;
+        letter-spacing: 1px;
+    }
+    button.getStarted,
+    button.next.special{
+        width: 100%;
+        color: rgba(255,165,0,1);
+        background-color: #ffffff !important;
+    }
+    button.unique{
+        background: linear-gradient(45deg, rgba(255, 0, 0, 0.8),rgba(255,165,0,1));
+        color: #ffffff !important;
+    }
+    button.next,
+    button.previous{
+        color: #ffffff;
+        width: 48%;
+    }
+    button.next{        
+        background-color: rgba(255,165,0,1);
+    }
+    button.previous{
+        background-color: rgba(255, 0, 0, 0.8);
+    }
+    button.previous+button.next{
+        margin: 0 2px;
+    }
+
+    /* Navs */
+    nav{
+        width: 100%;
+        height: auto;
+        padding: 0 20px;
+        margin: 0;
+        display: block;
+        position: relative;
+        border-bottom: 1px solid rgba(255,165,0,1);
+    }
+    ul{
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        display: block;
+    }
+    ul,li{
+        list-style: none;
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    ul>li{        
+        width: calc(100%/3);
+        display: block;
+        float: left;
+    }
+    ul>li>a{
+        height: 35px;
+        display: block;
+        cursor: pointer;
+        padding: 7.5px 0;
+        text-decoration: none;
+    }
+
+    /* Center the loader */
+    div#loader {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 1;
+        width: 75px;
+        height: 75px;
+        margin: -37.5px 0 0 -37.5px;
+        border: 5px solid rgba(255, 166, 0, 0.5);
+        border-radius: 50%;
+        border-top: 5px solid rgba(255, 0, 0, 0.8);
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+        display: none;
+    }
+    div#loader.show{
+        display: block;
+    }
+    @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+    }
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+}
