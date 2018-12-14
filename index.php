@@ -8,7 +8,8 @@
     <!-- Styling Rules -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <!-- Javascript Dependencies -->
-    <script src="./assets/js/vue.js"></script>
+    <script src="./assets/js/vue.js"></script>    
+    <script src="./assets/js/axios.min.js"></script>
 </head>
 <body>
     <div id="app">
@@ -167,7 +168,7 @@
                         <button id="next" @click="populatePreview" class="next">Preview</button>
                     </div>
                 </div>
-                <div id="preview" v-if="isSubmitted" class="tab"> 
+                <div id="preview"class="tab"> 
                     <div class="image"><img alt="" srcset=""></div>
                     <div class="aboutme">
                         <div>
@@ -232,7 +233,7 @@
         </div>
     </div>
 
-    <script src="./assets/js/databinds.js"></script>
     <script src="./assets/js/controls.js"></script>
+    <script src="./assets/js/databinds.js"></script>
 </body>
 </html>

@@ -1,7 +1,6 @@
 var app = new Vue({
     el: '#app',
     data: {
-        completeData: [],
         fullname: '',
         dateOfBirth: '',
         age: '',
@@ -16,19 +15,32 @@ var app = new Vue({
         occupation: '',
         phonenumber: '',
         email: '',
-        isSubmitted: false,
     },
 
     methods:{
         populatePreview: function(event){
             event.preventDefault(); 
-            this.isSubmitted = true; 
-
-            var dattas = document.querySelectorAll('.data');
-            for (var i = 0; i < dattas.length; i++){
-                this.completeData.push(dattas[i].innerHTML);
+            const FormData = {
+                fullname: this.fullname,
+                dateOfBirth: this.dateOfBirth,
+                age: this.age,
+                gender: this.gender,
+                ethnicGroup: this.ethnicGroup,
+                stateOfOrigin: this.stateOfOrigin,
+                lga: this.lga,
+                homeTown: this.homeTown,
+                stateofResidence: this.stateofResidence,
+                lgaOfResidence: this.lgaOfResidence,
+                religion: this.religion,
+                occupation: this.occupation,
+                phonenumber: this.phonenumber,
+                email: this.email
             }
-            console.log(this.completeData);
+
+            console.log(FormData);
+            axios.post('http://localhost/Centralized-Census-Management-System/api/users/createUser.php',FormData)
+                .then(res => console.log(res))
+                .catch(error => console.log(error));
         }
     }
 })
