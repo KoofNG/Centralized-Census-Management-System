@@ -1,14 +1,9 @@
 window.addEventListener('load', function(){
 
-
     var nextBtn = document.querySelectorAll('#next');
-    this.console.log(nextBtn);
     var prevBtn = document.querySelectorAll('#previous');
     var tabs = document.getElementsByClassName('tab')
     var index = 0;
-
-    
-    
 
     for (let i = 0; i < nextBtn.length; i++) {
         nextBtn[i].addEventListener('click', function(){
@@ -17,16 +12,14 @@ window.addEventListener('load', function(){
             if(index<(tabs.length-1)){
                 index++;
             }
-            showAnimation();
-            
+            showAnimation();            
         })
     }
-
     function showAnimation(){
         setTimeout(() => {
             document.getElementById('loader').classList.remove('show');
             tabs[index].classList.add('active');
-        }, 100);
+        }, 1200);
     }
     for (let q = 0; q < prevBtn.length; q++){
         prevBtn[q].addEventListener('click', function(){
@@ -34,8 +27,5 @@ window.addEventListener('load', function(){
             index--;
             tabs[index].classList.add('active');
         })
-    }
-
-
-    
+    }    
 })

@@ -1,0 +1,466 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+:root{
+	--testBg: linear-gradient(45deg, rgba(255, 0, 0, 0.8),rgba(255,165,0,1));
+	--bgColor: #eeeeee;
+	--pgColor: rgba(255,165,0,1) /* #195bdc  4b5659 */;
+	--hdColor: black;
+	--littleP: #4b5659/* b3b7b8 */;
+	--white: #ffffff;
+	--sidebar: rgb(0,64,0);
+	--lightsidebar: rgb(0,176,88);
+}
+@font-face{
+	font-family: "Roboto-Regular";
+	src: url("../fonts/Roboto/Roboto-Regular.ttf");
+}
+@font-face{
+	font-family: "Roboto-bold";
+	src: url("../fonts/Roboto/Roboto-Bold.ttf")
+}
+@font-face{
+	font-family: "Roboto-Light";
+	src: url("../fonts/Roboto/Roboto-Light.ttf")
+}
+@font-face{
+	font-family: "Font-Awesome";
+	src: url("../fonts/FontAwesome.otf");
+}
+
+html,body{
+	background-color: var(--bgColor);
+	height: 100vh;
+	width: 100%;
+	position: relative;
+}
+
+div#app{
+	display: flex;
+	position: relative;
+	height: 100vh;
+	width: 100%;
+}
+
+div.left,
+div.right{
+	width: 50%;
+	height: 100vh;
+	position: relative;
+}
+
+div.left{
+	background: var(--testBg);;
+}
+
+/* Right Part */
+div.right{
+	background-color: #ffffff;
+	padding: 80px 60px;
+}
+h3,p{
+	text-align: left;
+	letter-spacing: 1px;
+}
+h3{
+	font-family: "Roboto-Regular";
+	font-size: 24px;
+	color: var(--pgColor);
+	font-weight: 500;
+	padding: 20px 0;
+}
+p,div.loginInfo>label{
+	font-family: "Roboto-Light";
+	color: var(--littleP);
+	font-size: 16px;
+	font-weight: 300;
+}
+form{
+	padding: 25px 0;
+	display: flex;
+	flex-direction: column;
+}
+div.loginInfo{
+	margin: 5px 0px;
+	height: auto;
+	width: 100%;
+	display: block;
+}
+div.loginInfo>label{
+	display: block;
+	position: relative;
+	padding: 2.5px 0;
+}
+div.loginInfo>input{
+	display: block;
+	width: 100%;
+	height: 35px;
+	padding: 5px 5px;
+	outline: none;
+	border: none;
+	border-bottom: 1px solid var(--littleP);
+	transition: border 1000ms;
+}
+div.loginInfo>input:focus{
+	border-bottom: 1px solid var(--pgColor);
+}
+div.loginInfo>input[type=checkbox]{
+	width: auto;
+	height: auto;
+	margin-right: 10px;
+}
+div.loginInfo.alignCenter{
+	text-align: center;
+	padding: 10px 0;
+}
+div.loginInfo.xtrapad{
+	padding: 7.5px 0;
+}
+button#btnLogin{
+	height: 40px;
+	width: auto;
+	padding: 10px 30px;
+	border-radius: 20px;
+	cursor: pointer;
+	outline: none;
+	border: none;
+	background: var(--testBg);
+	color: #ffffff;
+}
+
+/* Main Pages */
+div.wrap{
+	width: 100%;
+	height: 100vh;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+}
+
+div#navbar{
+	height: 50px;
+	width: 100%;
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	background-color: var(--white);
+	box-shadow: 0px 1px 5px -1px #000000;
+	padding: 10px 30px 10px 230px;
+	z-index: 1;
+}
+div.c_menu{
+	width: 30px;
+	height: 100%;
+	display: block;
+	position: relative;
+	float: left;
+}
+span#collapse,
+span#search{
+	position: relative;
+	display: block;
+	float: left;
+	width: 30px;
+	height: 30px;
+	max-height: 100%;
+	margin: 0;
+}
+span#collapse::after,
+span#search::after{	
+    font-family: "Font-Awesome";
+    text-align: center;
+    font-size: 28px;
+	color: var(--sidebar);
+	padding: 1px 3px;
+}
+span#collapse::after{
+	content: '\f0c9';
+}
+div.search{
+	height: 100%;
+	width: auto;
+	position: relative;
+	padding: 0 15px;
+	display: block;
+	float: left;
+}
+div.search>input[type=text]{
+	width: 250px;
+	height: 100%;
+	position: relative;
+	border-radius: 15px;
+	outline: none;
+	border: 1px solid #cccccc;
+	padding: 2.5px 30px 2.5px 10px;
+	text-transform: capitalize;
+}
+span#search{
+	position: absolute;
+	right: 16px;
+	top: 0px;
+	cursor: pointer;
+	display: block;
+}
+span#search:hover{
+	width: 45px;
+	height: 100%;
+	text-align: center;
+	background-color: #cccccc;
+	border-radius: 15px;
+	transition: width 300ms;
+}
+span#search::after{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	content: '\f002';
+	font-size: 20px;
+	padding: 4px 3px;
+	box-sizing: border-box;
+}
+span#search:hover::after{
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+
+
+
+div#sidebar{
+	position: relative;
+	display: block;
+	width: 200px;
+	height: 100vh;
+	max-height: 100%;
+	background: var(--sidebar);
+	opacity: 0.8;
+	top: 0;
+	left: 0;
+	padding: 0;
+	z-index: 2;
+}
+div.header{
+	width: 100%;
+	height: 50px;
+	padding: 10px 20px;
+	display: block;
+	position: relative;
+}
+div.header>a{
+	color: var(--white);
+	font-size: 24px;
+	font-family: 'Roboto-Regular';
+	text-decoration: none;
+	display: block;
+	cursor: pointer;
+}
+
+div.navigation{
+	padding: 20px 0;
+	margin: 0;
+	display: block;
+}
+div.navigation>ul{
+	list-style: none;
+	display: block;
+}
+div.navigation>ul>li{
+	width: 100%;
+	height: auto;
+	list-style: none;
+	padding: 10px 0;
+	background: none;
+	transition: background 200ms;
+}
+div.navigation>ul>li+li{
+	margin: 2.5px 0;
+}
+div.navigation>ul>li:hover{
+	background: var(--lightsidebar);
+	transition: background 300ms;
+	opacity: 1;
+}
+div.navigation>ul>li:hover>a{
+	border-left: 5px solid #ffffff;
+	border-right: 5px solid #ffffff;
+}
+div.navigation>ul>li>a{
+	height: auto;
+	width: 100%;
+	display: block;
+	position: relative;
+	cursor: pointer;
+	color: var(--white);	
+	text-decoration: none;
+	padding: 0 10px;
+	font-family: 'Roboto-Light';
+	font-size: 16px;
+	font-weight: 400;
+}
+div.navigation>ul>li>a>span{
+	top: -5px !important;
+	margin-right: 7.5px;
+	height: 30px;
+	width: 30px;
+	display: block;
+	position: relative;
+	float: left;
+}
+div.navigation>ul>li>a>span::after{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	content: '';
+	font-size: 22px;
+	font-family: 'Font-Awesome';
+	padding: 2px 4px 3px 4px;
+	text-align: center;
+	box-sizing: border-box;
+	color: var(--white)
+}
+div.navigation>ul>li>a>span#overview::after{
+	content: '\f0e4';
+}
+div.navigation>ul>li>a>span#reports::after{
+	content: '\f02c';
+}
+div.navigation>ul>li>a>span#greports::after{
+	content: '\f085';
+}
+div.navigation>ul>li>a>span#records::after{
+	content: '\f08d';
+}
+div.navigation>ul>li>a>span#accounts::after{
+	content: '\f055';
+}
+div.navigation>ul>li>ul.moreLinks{
+	display: none;
+	margin-left: 30px;
+}
+div.navigation>ul>li>ul.moreLinks.active{
+	display: block;
+}
+div.navigation>ul>li>ul{
+	list-style: none;
+	padding: 5px 20px;
+}
+div.navigation>ul>li>ul>li{
+	width: 100%;
+	height: auto;
+	list-style: none;
+	padding: 5px 0;
+	display: block;
+	position: relative;
+}
+div.navigation>ul>li>ul>li:hover>a{
+	color: var(--sidebar);
+}
+div.navigation>ul>li>ul>li>a{
+	height: auto;
+	width: 100%;
+	display: block;
+	position: relative;
+	cursor: pointer;
+	color: var(--white);	
+	text-decoration: none;
+	padding: 0 5px;
+	font-family: 'Roboto-Light';
+	font-size: 13px;
+	font-weight: 400;
+}
+
+div#rightbar{
+	position: absolute;
+	display: inline-block;
+	width: calc(100% - 200px);
+	overflow-y: auto;
+	height: 100vh;
+	max-height: 100%;
+	left: 200px;
+	background: #ffffff;
+	padding: 80px 30px 30px 30px;
+}
+
+
+/* Search Forms */
+div.searchForms{
+	display: inline-block;
+	position: relative;
+	height: auto;
+	width: 100%;
+	/* padding: 5px 10px;
+	box-shadow: 0px 0px 5px 0px #121212; */
+	border-radius: 4px;
+}
+div.searchForms>p.heading{
+	font-weight: 500;
+	font-size: 22px;
+	padding-bottom: 10px;
+}
+div.searchForms>div.form{
+	display: flex;
+	flex-direction: row;
+	flex-grow: 4;
+}
+div.searchForms>div.form>div{
+	width: 25%;
+}
+div.searchForms>div.form>div:nth-child(even){
+	margin-left: 10px;
+}
+div.searchForms>div.form>div>label{
+	font-family: 'Roboto-Light';
+    color: var(--littleP);
+	padding: 7.5px 0px;
+	position: relative;
+	display: block;
+}
+div.searchForms>div.form>div>input{
+	width: 100%;
+	height: 35px;
+	padding: 5px 10px;
+	border: 1px solid #cccccc;
+	border-radius: 4px;
+}
+
+/* Styling Search Button */
+button#searchUser{
+	display: inline-block;
+	border-radius: 4px;
+	background-color: #f4511e;
+	border: none;
+	color: #ffffff;
+	text-align: center;
+	font-size: 16px;
+	padding: 8.5px 15px;
+	width: auto;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 0 7.5px;
+}
+/*
+button#searchUser span{
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+button#searchUser span:after{
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
+}
+button#searchUser:hover span{
+	padding-right: 25px;
+}
+button#searchUser:hover span::after{
+	opacity: 1;
+	right: 0;;
+} */

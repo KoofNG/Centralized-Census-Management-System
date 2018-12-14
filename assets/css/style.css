@@ -2,6 +2,8 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box; 
 }
 html,body{
     padding: 0;
@@ -44,21 +46,11 @@ html,body{
         width: 100%;
         position: relative;
         display: block;
-    }
-    /* The Tabs */
-    div.tab{
-        display: none;
-        opacity: 0;
-    }
-    div.tab.active{
-        display: block;
-        height: 100vh;
-        width: 100%;
-        opacity: 1;
-        transition: opacity  0.3s;
-        position: relative;
-    }
+    }    
 
+    div.leftTab{
+        display: none !important;
+    }
     /* Welcome Page */
     div#welcome{
         background: linear-gradient(45deg, rgba(255, 0, 0, 0.8),rgba(255,165,0,1));
@@ -99,9 +91,7 @@ html,body{
         color: #ffffff !important;
         letter-spacing: 0.3px;
         padding: 5px 0;
-    }
-
-    
+    }    
     div.imagery{
         height: 280px;
         width: 100%;
@@ -121,67 +111,7 @@ html,body{
         background: linear-gradient(45deg, rgba(255, 0, 0, 0.8),rgba(255,165,0,1));
         opacity: 0.9;
     }
-    h3.caption{
-        color: #ffffff;
-        z-index: 3;
-        position: absolute;
-        bottom: 10px;
-        left: 20px;
-        font-family: "Roboto-Light";
-        font-size: 18px;
-        letter-spacing: 0.5;
-    }
-    /* Each Tab Images */
-    div#persona{background-image: url("../images/kisspng.png");}
-    div#location{background-image: url("../images/locatio.jpg");}
-    div#general{background-image: url("../images/gr.png");}
-    div#profile{background-image: url("../images/grab.png");}
-    /* End of Each Tab Images */
-
-    div.formContent{
-        width: 100%;
-        height: auto;
-        padding: 20px;
-        margin: 0;
-        display: block;
-    }
-    div.formContent>div{
-        height: auto;
-        width: 100%;
-    }
-    div.formContent>div:nth-child(odd){
-        margin: 4.5px 0;
-    }
-    div.formContent>div>label{
-        width: 100%;
-        height: auto;
-        padding: 1.5px 0;
-        color: #111111;
-        display: block;
-        position: relative;
-        font-family: "Roboto-Regular";
-        font-weight: lighter;
-        font-size: 14px;
-        text-transform: uppercase;
-    }
-    div.formContent>div>input,select{
-        height: 35px;
-        width: 100%;
-        display: block;
-        position: relative;
-        outline: none;
-        border: 1px solid #cccccc;
-        background-color: transparent;
-        padding: 6.5px 10px;
-        font-size: 14px;
-        font-family: "Roboto-Light";
-    }
-    div.formContent>div>input[type=date]{
-        text-transform: uppercase;
-    }
-    div.formContent>div>input:focus,select:focus{
-        border-bottom: 1px solid rgb(255,165,0,1);
-    }
+    
     /* All Buttons */
     div#button{
         position: absolute;
@@ -236,7 +166,6 @@ html,body{
     button.previous+button.next{
         margin: 0 2px;
     }
-
     /* Navs */
     nav{
         width: 100%;
@@ -272,7 +201,6 @@ html,body{
         padding: 7.5px 0;
         text-decoration: none;
     }
-
     /* Center the loader */
     div#loader {
         position: absolute;
@@ -292,13 +220,292 @@ html,body{
     div#loader.show{
         display: block;
     }
-    @-webkit-keyframes spin {
-        0% { -webkit-transform: rotate(0deg); }
-        100% { -webkit-transform: rotate(360deg); }
-    }
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
+}
 
+/* For WEB View */
+@media only screen and (min-width: 768px){
+    body,
+    div#app{
+        height: 100vh;
+        width: 100%;
+        display: block;
+        position: relative;
+    }
+    div.wrapper{
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    div.leftTab,
+    div#tabs{
+        width: 50%;
+        display: block;
+        position: relative;
+    }
+    /* For The Left Tab */
+    div.leftTab{
+        background-image: linear-gradient(45deg, rgba(255, 0, 0, 0.8),rgba(255,165,0,1));
+        display: block;
+    }
+    div.leftTab::after{
+        background: url("../images/OndoState.png") no-repeat;
+        background-position: 50% 20%;
+        content: '';
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        top: 0;
+        left: 0;
+        position: absolute;
+    }
+    div.leftTab>h1{
+        font-family: 'Roboto-Regular';
+        font-size: 24px;
+        font-weight: 500;
+        width: 100%;
+        height: auto;
+        position: relative;
+        text-align: center;
+        color: #ffffff;
+        margin-top: 350px;
+    }
+    div#tabs{
+        padding: 30px 100px;
+    }
+    div.tab{
+        top: 20%;
+        transform: translateY(-20%); 
+    }
+    div.tab.active{
+        height: auto !important;
+    }
+    /* Welcome Page */
+    div.logo{
+        display: none;
+    }
+    div.description{
+        height: auto;
+        width: 100%;
+        position: relative;
+        display: block;
+        padding: 20px 0;
+    }
+    h3.description{
+        font-family: "Roboto-Light";
+        font-size: 60px;
+        font-weight: lighter;
+        font-stretch: expanded;
+        color: rgba(255,165,0,1);
+        padding: 10px 0 25px 0;
+    }
+    p.body{
+        font-family: "Roboto-Light";
+        font-size: 30px;
+        font-weight: lighter;
+        color: rgba(255,165,0,8);
+        letter-spacing: 0.3px;
+        padding: 5px 0;
+    }    
+    div.imagery{
+        height: 250px;
+        width: 100%;
+        position: relative;
+        background-color: #ffffff;
+        background-repeat: no-repeat;
+        background-position: top bottom;
+        background-size: cover;
+    }
+    div.imagery::after{
+        position: absolute;
+        content: '';
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background: linear-gradient(45deg, rgba(255, 0, 0, 0.8),rgba(255,165,0,1));
+        opacity: 0.9;
+        border-radius: 5px;
+        border: 1px solid rgba(255,165,0,1);
+    }
+    h3.caption{
+        color: #ffffff !important;
+    }
+    div.formContent{
+        padding: 20px 0 !important;
+    }
+    
+    div#profile{background-image: url("../images/grab.png") !important;}
+    div#persona{background-image: url("../images/info.png") !important;}
+
+
+    /* All Buttons */
+    div#button{
+        position: relative;
+        height: 50px;
+        width: 100%;
+        display: block;
+        padding: 0;
+    }
+    div#buttons{
+        position: relative;
+        height: 40px;
+        width: 100%;
+        display: block;
+        padding: 0px;
+        margin-bottom: 20px;
+    }
+    button{
+        font-family: "Roboto-Light";
+        font-weight: 500;
+        font-size: 17px;
+        cursor: pointer;
+        outline: none;
+        border: none;
+        border-radius: 25px;
+        height: 100%;
+        letter-spacing: 1px;
+        transition: all 300ms;
+    }
+    button:hover,
+    button.getStarted:hover{
+        font-size: 17.5px;
+        background-image: linear-gradient(35deg, rgba(255,165,0,1),rgba(255, 0, 0, 0.8));
+    }
+    button.getStarted,
+    button.next.special{
+        width: 100%;
+        color: #ffffff !important;
+        transition: all 300ms;
+        background-image: linear-gradient(45deg, rgba(255, 0, 0, 0.8),rgba(255,165,0,1));
+    }
+    button.unique{
+        background: linear-gradient(45deg, rgba(255, 0, 0, 0.8),rgba(255,165,0,1));
+        color: #ffffff !important;
+    }
+    button.next,
+    button.previous{
+        color: #ffffff;
+        width: 48%;
+    }
+    button.next{        
+        background-color: rgba(255,165,0,1);
+    }
+    button.previous{
+        background-color: rgba(255, 0, 0, 0.8);
+    }
+    button.previous+button.next{
+        margin: 0 2px;
+    }
+    /* Center the loader */
+    div#loader {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 1;
+        width: 75px;
+        height: 75px;
+        border: 5px solid rgba(255, 166, 0, 0.5);
+        border-radius: 50%;
+        border-top: 5px solid rgba(255, 0, 0, 0.8);        
+        margin: -37.5px 0 0 -37.5px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+        display: none;
+    }
+    div#loader.show{
+        display: block;
+    } 
+}
+
+/* The Tabs */
+div.tab{
+    display: none;
+    opacity: 0;
+}
+div.tab.active{
+    display: block;
+    height: 100vh;
+    width: 100%;
+    opacity: 1;
+    transition: opacity  0.3s;
+    position: relative;
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+
+h3.caption{
+    color: #ffffff;
+    z-index: 3;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    font-family: "Roboto-Light";
+    font-size: 18px;
+    letter-spacing: 0.5;
+}
+/* Each Tab Images */
+div#persona{background-image: url("../images/kisspng.png");}
+div#location{background-image: url("../images/locatio.jpg");}
+div#general{background-image: url("../images/gr.png");}
+div#profile{background-image: url("../images/grab.png");}
+
+
+/* Forms Content */
+/* End of Each Tab Images */
+div.formContent{
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    margin: 0;
+    display: block;
+}
+div.formContent>div{
+    height: auto;
+    width: 100%;
+}
+div.formContent>div:nth-child(odd){
+    margin: 4.5px 0;
+}
+div.formContent>div>label{
+    width: 100%;
+    height: auto;
+    padding: 1.5px 0;
+    color: #111111;
+    display: block;
+    position: relative;
+    font-family: "Roboto-Regular";
+    font-weight: lighter;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+div.formContent>div>input,select{
+    height: 35px;
+    width: 100%;
+    display: block;
+    position: relative;
+    outline: none;
+    border: 1px solid #cccccc;
+    background-color: transparent;
+    padding: 6.5px 10px;
+    font-size: 14px;
+    font-family: "Roboto-Light";
+}
+div.formContent>div>input[type=date]{
+    text-transform: uppercase;
+}
+div.formContent>div>input:focus,select:focus{
+    border-bottom: 1px solid rgb(255,165,0,1);
 }
