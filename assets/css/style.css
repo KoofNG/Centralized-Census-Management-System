@@ -26,472 +26,294 @@ html,body{
     font-family: "Font-Awesome";
     src: url("../fonts/FontAwesome.otf");
 }
-
-/* For Mobile First View */
-@media only screen and (max-width: 767px){
-    body{
-        height: 100vh;
-        width: 100%;
-        display: block;
-        position: relative;
-    }
-    div#app{
-        height: 100vh;
-        width: 100%;
-        position: relative;
-        display: block;
-    }
-    div#tabs{
-        height: 100vh;
-        width: 100%;
-        position: relative;
-        display: block;
-    }    
-
-    div.leftTab{
-        display: none !important;
-    }
-    /* Welcome Page */
-    div#welcome{
-        background: linear-gradient(45deg, rgba(255, 0, 0, 0.8),rgba(255,165,0,1));
-        height: 100vh;
-        width: 100%;
-        position: relative;
-        padding: 20px;
-        margin: 0;        
-    }
-    div.logo{
-        height: 120px;
-        width: 100%;
-        padding: 12.5px 0;
-        position: relative;
-        background-image: url("../images/OndoState.png");
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: 50% 50%;
-    }
-    div.description{
-        height: auto;
-        width: 100%;
-        position: relative;
-        top: 35%;
-        transform: translateY(-35%);
-        padding: 20px 0;
-    }
-    h3.description{
-        font-family: "Roboto-Light";
-        font-size: 40px;
-        color: #ffffff;
-        letter-spacing: 0.5px;
-        padding: 10px 0;
-    }
-    p.body{
-        font-family: "Roboto-Light";
-        font-size: 20px;
-        color: #ffffff !important;
-        letter-spacing: 0.3px;
-        padding: 5px 0;
-    }    
-    div.imagery{
-        height: 280px;
-        width: 100%;
-        position: relative;
-        background-color: #ffffff;
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
-        background-size: cover;
-    }
-    div.imagery::after{
-        position: absolute;
-        content: '';
-        left: 0;
-        right: 0;
-        bottom: 0;
-        top: 0;
-        background: linear-gradient(45deg, rgba(255, 0, 0, 0.8),rgba(255,165,0,1));
-        opacity: 0.9;
-    }
-    
-    /* All Buttons */
-    div#button{
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 20px;
-        height: 40px;
-        width: 100%;
-        display: block;
-        padding: 0 20px;
-    }
-    div#buttons{
-        position: relative;
-        height: 40px;
-        width: 100%;
-        display: block;
-        padding: 0 20px;
-        margin-bottom: 20px;
-    }
-    button{
-        font-family: "Roboto-Light";
-        font-weight: 500;
-        font-size: 16px;
-        cursor: pointer;
-        outline: none;
-        border: none;
-        border-radius: 20px;
-        height: 100%;
-        letter-spacing: 1px;
-    }
-    button.getStarted,
-    button.next.special{
-        width: 100%;
-        color: rgba(255,165,0,1);
-        background-color: #ffffff !important;
-    }
-    button.unique{
-        background: linear-gradient(45deg, rgba(255, 0, 0, 0.8),rgba(255,165,0,1));
-        color: #ffffff !important;
-    }
-    button.next,
-    button.previous{
-        color: #ffffff;
-        width: 48%;
-    }
-    button.next{        
-        background-color: rgba(255,165,0,1);
-    }
-    button.previous{
-        background-color: rgba(255, 0, 0, 0.8);
-    }
-    button.previous+button.next{
-        margin: 0 2px;
-    }
-    /* Navs */
-    nav{
-        width: 100%;
-        height: auto;
-        padding: 0 20px;
-        margin: 0;
-        display: block;
-        position: relative;
-        border-bottom: 1px solid rgba(255,165,0,1);
-    }
-    ul{
-        width: 100%;
-        height: auto;
-        margin: 0;
-        padding: 0;
-        display: block;
-    }
-    ul,li{
-        list-style: none;
-        position: relative;
-        width: 100%;
-        height: 100%;
-    }
-    ul>li{        
-        width: calc(100%/3);
-        display: block;
-        float: left;
-    }
-    ul>li>a{
-        height: 35px;
-        display: block;
-        cursor: pointer;
-        padding: 7.5px 0;
-        text-decoration: none;
-    }
-    /* Center the loader */
-    div#loader {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        z-index: 1;
-        width: 75px;
-        height: 75px;
-        margin: -37.5px 0 0 -37.5px;
-        border: 5px solid rgba(255, 166, 0, 0.5);
-        border-radius: 50%;
-        border-top: 5px solid rgba(255, 0, 0, 0.8);
-        -webkit-animation: spin 2s linear infinite;
-        animation: spin 2s linear infinite;
-        display: none;
-    }
-    div#loader.show{
-        display: block;
-    }
-}
-
-/* For WEB View */
-@media only screen and (min-width: 768px){
-    body,
-    div#app{
-        height: 100vh;
-        width: 100%;
-        display: block;
-        position: relative;
-    }
-    div.wrapper{
-        display: flex;
-        flex-direction: row;
-        position: relative;
-        width: 100%;
-        height: 100%;
-    }
-    div.leftTab,
-    div#tabs{
-        width: 50%;
-        display: block;
-        position: relative;
-    }
-    /* For The Left Tab */
-    div.leftTab{
-        background-image: linear-gradient(45deg, rgba(255, 0, 0, 0.8),rgba(255,165,0,1));
-        display: block;
-    }
-    div.leftTab::after{
-        background: url("../images/OndoState.png") no-repeat;
-        background-position: 50% 20%;
-        content: '';
-        height: 100%;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        top: 0;
-        left: 0;
-        position: absolute;
-    }
-    div.leftTab>h1{
-        font-family: 'Roboto-Regular';
-        font-size: 24px;
-        font-weight: 500;
-        width: 100%;
-        height: auto;
-        position: relative;
-        text-align: center;
-        color: #ffffff;
-        margin-top: 350px;
-    }
-    div#tabs{
-        padding: 30px 100px;
-    }
-    div.tab{
-        top: 20%;
-        transform: translateY(-20%); 
-    }
-    div.tab.active{
-        height: auto !important;
-    }
-    /* Welcome Page */
-    div.logo{
-        display: none;
-    }
-    div.description{
-        height: auto;
-        width: 100%;
-        position: relative;
-        display: block;
-        padding: 20px 0;
-    }
-    h3.description{
-        font-family: "Roboto-Light";
-        font-size: 60px;
-        font-weight: lighter;
-        font-stretch: expanded;
-        color: rgba(255,165,0,1);
-        padding: 10px 0 25px 0;
-    }
-    p.body{
-        font-family: "Roboto-Light";
-        font-size: 30px;
-        font-weight: lighter;
-        color: rgba(255,165,0,8);
-        letter-spacing: 0.3px;
-        padding: 5px 0;
-    }    
-    div.imagery{
-        height: 250px;
-        width: 100%;
-        position: relative;
-        background-color: #ffffff;
-        background-repeat: no-repeat;
-        background-position: top bottom;
-        background-size: cover;
-    }
-    div.imagery::after{
-        position: absolute;
-        content: '';
-        left: 0;
-        right: 0;
-        bottom: 0;
-        top: 0;
-        background: linear-gradient(45deg, rgba(255, 0, 0, 0.8),rgba(255,165,0,1));
-        opacity: 0.9;
-        border-radius: 5px;
-        border: 1px solid rgba(255,165,0,1);
-    }
-    h3.caption{
-        color: #ffffff !important;
-    }
-    div.formContent{
-        padding: 20px 0 !important;
-    }
-    
-    div#profile{background-image: url("../images/grab.png") !important;}
-    div#persona{background-image: url("../images/info.png") !important;}
-
-
-    /* All Buttons */
-    div#button{
-        position: relative;
-        height: 50px;
-        width: 100%;
-        display: block;
-        padding: 0;
-    }
-    div#buttons{
-        position: relative;
-        height: 40px;
-        width: 100%;
-        display: block;
-        padding: 0px;
-        margin-bottom: 20px;
-    }
-    button{
-        font-family: "Roboto-Light";
-        font-weight: 500;
-        font-size: 17px;
-        cursor: pointer;
-        outline: none;
-        border: none;
-        border-radius: 25px;
-        height: 100%;
-        letter-spacing: 1px;
-        transition: all 300ms;
-    }
-    button:hover,
-    button.getStarted:hover{
-        font-size: 17.5px;
-        background-image: linear-gradient(35deg, rgba(255,165,0,1),rgba(255, 0, 0, 0.8));
-    }
-    button.getStarted,
-    button.next.special{
-        width: 100%;
-        color: #ffffff !important;
-        transition: all 300ms;
-        background-image: linear-gradient(45deg, rgba(255, 0, 0, 0.8),rgba(255,165,0,1));
-    }
-    button.unique{
-        background: linear-gradient(45deg, rgba(255, 0, 0, 0.8),rgba(255,165,0,1));
-        color: #ffffff !important;
-    }
-    button.next,
-    button.previous{
-        color: #ffffff;
-        width: 48%;
-    }
-    button.next{        
-        background-color: rgba(255,165,0,1);
-    }
-    button.previous{
-        background-color: rgba(255, 0, 0, 0.8);
-    }
-    button.previous+button.next{
-        margin: 0 2px;
-    }
-    /* Center the loader */
-    div#loader {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        z-index: 1;
-        width: 75px;
-        height: 75px;
-        border: 5px solid rgba(255, 166, 0, 0.5);
-        border-radius: 50%;
-        border-top: 5px solid rgba(255, 0, 0, 0.8);        
-        margin: -37.5px 0 0 -37.5px;
-        -webkit-animation: spin 2s linear infinite;
-        animation: spin 2s linear infinite;
-        display: none;
-    }
-    div#loader.show{
-        display: block;
-    } 
-}
-
-/* The Tabs */
-div.tab{
-    display: none;
-    opacity: 0;
-}
-div.tab.active{
-    display: block;
+body{
     height: 100vh;
     width: 100%;
-    opacity: 1;
-    transition: opacity  0.3s;
+    display: block;
+    position: relative;
+}
+/* For Web Screens */
+div#app{
+    width: 100%;
+    height: 100vh;
+    display: block;
+    position: fixed;
+    overflow: hidden;
+}
+div.wrapper{
+    width: 100%;
+    height: 100vh;
+    display: flex;
     position: relative;
 }
 
+/* For Tab Contents */
+div.leftTab,
+div.rightTab{
+    width: 50%;
+    height: 100vh;
+    position: relative;
+    padding: 0 80px;
+}
+div.leftTab{
+    width: 50%;
+    height: 100vh;
+    background: url("../images/state.jpg") no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    position: relative;
+
+}
+div.leftTab::after{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    content: '';
+    display: block;
+    position: absolute;
+    background-image: linear-gradient(45deg, rgba(255, 0, 0, 0.8),rgba(255,165,0,1));
+    opacity: 0.8;
+}
+div.content{
+    height: auto;
+    width: 100%;
+    padding: 40px 0;
+    top: 40%; 
+    transform: translateY(-60%);
+    position: relative;
+    z-index: 1000;
+}
+div.wrapLogo{
+    padding: 10px 30px;
+    background-color: #ffffff;
+    width: 250px;
+    height: 100px;
+    border-radius: 50px;
+    margin: 10px auto;
+}
+div.brandLogo{
+    height: 100%;
+    width: 100%;
+    background: url("../images/try.png") no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    position: relative;
+    display: block;
+}
+div.brandName{
+    width: 100%;
+    height: 50px;
+    margin: 7.5px auto;
+    position: relative;
+    display: block;
+    text-align: center;
+    padding: 10px 20px;
+}
+div.brandName>h3,p{
+    color: #ffffff;
+}
+div.brandName>h3{
+    font-family: 'Roboto-Regular';
+    font-weight: 500;
+    font-size: 24px;
+    font-stretch: expanded;
+}
+div.brandName>p{
+    padding: 15px 0;
+    font-family: 'Roboto-Light';
+    font-weight: 300;
+    font-size: 18px;
+    opacity: 0.5;
+}
+div.rightTab{    
+}
+div.r_tab>p{
+    color: #333333;
+    padding: 10px 0 15px 0;
+    font-family: 'Roboto-Light';
+    font-weight: 400;
+    font-size: 20px;
+    opacity: 0.5;
+    text-transform: uppercase;
+}
+div.r_tab>h3{
+    background-image: linear-gradient(45deg, rgba(255, 0, 0, 0.8),rgba(255,165,0,1));
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-transform: uppercase;
+    color: transparent;
+    font-family: 'Roboto-Regular';
+    font-weight: 500;
+    font-size: 32px;
+    font-stretch: expanded;
+}
+div.mainContent{
+    padding: 40px 0;
+}
+div.mainContent>h1,h4{
+    color: #444444;
+}
+div.mainContent>h1{
+    font-family: 'Roboto-Light';
+    font-weight: 500;
+    font-size: 38px;
+    padding: 15px 0;
+    margin: 0;
+}
+div.mainContent>h4{
+    font-family: 'Roboto-Light';
+    font-weight: normal;
+    font-size: 22px;
+    padding: 0;
+    margin: 0;
+}
+div.action_button{
+    height: 40px;
+    width: 100%;
+    display: block;
+    position: relative;
+    text-align: center;
+}
+div.action_button>button{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    background-image: linear-gradient(45deg, rgba(255, 0, 0, 0.8),rgba(255,165,0,1));
+    color: #ffffff;
+    font-family: 'Roboto-Regular';
+    font-weight: normal;
+    font-size: 15px;
+    transition: all 300ms;
+}
+div.action_button>button:hover{
+    color: #333333;
+    font-size: 14px;
+}
+
+/* Center the loader */
+div#loader{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1000;
+    width: 75px;
+    height: 75px;
+    margin: -37.5px 0 0 -37.5px;
+    border: 5px solid rgba(255, 166, 0, 0.5);
+    border-radius: 50%;
+    border-top: 5px solid rgba(255, 0, 0, 0.8);
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    display: none;
+}
+div#loader.show{
+    display: block;
+}
 @-webkit-keyframes spin {
     0% { -webkit-transform: rotate(0deg); }
     100% { -webkit-transform: rotate(360deg); }
 }
-@keyframes spin {
+@keyframes spin{
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
-
-
-h3.caption{
-    color: #ffffff;
-    z-index: 3;
-    position: absolute;
-    bottom: 10px;
-    left: 20px;
-    font-family: "Roboto-Light";
-    font-size: 18px;
-    letter-spacing: 0.5;
-}
-/* Each Tab Images */
-div#persona{background-image: url("../images/kisspng.png");}
-div#location{background-image: url("../images/locatio.jpg");}
-div#general{background-image: url("../images/gr.png");}
-div#profile{background-image: url("../images/grab.png");}
-
-
-/* Forms Content */
-/* End of Each Tab Images */
-div.formContent{
+div.wrap_form{
+    height: 100vh;
     width: 100%;
-    height: auto;
-    padding: 20px;
-    margin: 0;
+    display: block;
+    position: relative;
+    padding: 40px 0;
+}
+
+div#image_section{
+    height: 160px;
+    width: 160px;
+    padding: 5px 0;
+    margin: 0 auto 25px auto;
+    display: block;
+    position: relative;
+}
+div.setImage{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 0, 0, 0.8);
+    background-color: whitesmoke;
+    position: absolute;
+    right: 5px;
+    bottom: 10px;
+    z-index: 2;
+}
+div#image_section>img{
+    width: 150px;
+    height: 150px;
+    margin: 0px auto;
+    position: relative;
+    display: block;
+    border-radius: 50%;
+    border: 2px solid rgba(255,165,0,1);
+}
+
+
+
+div.tab{
     display: block;
 }
-div.formContent>div{
-    height: auto;
-    width: 100%;
+div.tab.active{
+    display: block;
 }
-div.formContent>div:nth-child(odd){
-    margin: 4.5px 0;
+
+div.tab>h3{
+    padding: 7.5px 0;
+    font-family: 'Roboto-Regular';
+    font-weight: 500;
+    font-size: 20px;
+    color: #444444;
 }
-div.formContent>div>label{
+div#before_line{
+    width: 100%;
+    height: 4px;
+    background-color: rgba(255, 0, 0, 0.8);
+}
+div#after_line{    
+    width: 20%;
+    height: 4px;
+    background-color: rgba(255,165,0,1);
+    transition: width 1000ms;
+}
+div.tab>form{
+    padding: 15px 0;
+}
+div.tab>form>div{
     width: 100%;
     height: auto;
-    padding: 1.5px 0;
-    color: #111111;
+    display: block;
+    padding: 2px 0;
+}
+div.tab>form>div+div{
+    margin: 3px 0;
+}
+div.tab>form>div>label{
+    width: 100%;
+    height: auto;
+    padding: 2px 0;
+    color: #444444;
     display: block;
     position: relative;
     font-family: "Roboto-Regular";
     font-weight: lighter;
     font-size: 14px;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
-div.formContent>div>input,select{
+div.tab>form>div>input,
+div.tab>form>div>select{    
     height: 35px;
     width: 100%;
     display: block;
@@ -502,10 +324,359 @@ div.formContent>div>input,select{
     padding: 6.5px 10px;
     font-size: 14px;
     font-family: "Roboto-Light";
+    text-transform: capitalize;
 }
-div.formContent>div>input[type=date]{
+input[type=date]{
+    text-transform: uppercase !important;
+}
+input[id=age]:disabled{
+    cursor: not-allowed;
+}
+div.tab>form>div>input:focus,
+div.tab>form>div>select:focus{
+    border-bottom: 1px solid rgb(255,165,0,1);
+}
+
+div.btn_group{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+div.btn_group>button{
+    height: 100%;
+    width: 45%;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Roboto-Regular';
+    font-weight: normal;
+    font-size: 15px;
+    color: #ffffff;
+    transition: all 300ms;
+    margin: 0 10px;
+    cursor: pointer;
+}
+div.btn_group>button#next{
+    background-color: rgba(255,165,0,1);
+}
+div.btn_group>button#previous{
+    background-color: rgba(255, 0, 0, 0.8);
+}
+div.btn_group>button:hover{
+    color: #333333;
+    font-size: 14px;
+}
+div.alert{
+    height: auto;
+    width: 250px;
+    background-color: #d4edda;
+    border-radius: 20px;
+    display: block;
+    position: absolute;
+    padding: 7.5px 15px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: -100px;
+    z-index: 3;
+    transition: top 1000ms;
+}
+div.alert.active{
+    top: 30px;
+}
+p#msgAlert{
+    color: #ff0000;
+    font-family: 'Roboto-Regular';
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+}
+
+div.wrap_forms{
+    padding: 15px 15px;
+    height: 400px;
+    width: 100%;
+    margin: 0;
+    position: relative;
+    overflow-y: auto;
+    background-color: #eeeeee;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+div.form_details{}
+
+div.wrap_forms>div+div{
+    margin: 3px 0;
+}
+
+div.form_details>p,
+div.form_details>h5{
+    font-family: 'Roboto-Light';
+}
+div.form_details>p{
+    color: #444444;
+    text-transform: capitalize;
+    font-size: 12px;
+    font-weight: 300;
+    padding: 0 0 1px 0;
+}
+div.form_details>h5{
+    color: #121212;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0px;
+}
+div.form_details>h5.email{
+    text-transform: lowercase;
+}
+
+div.btn_group.form_btn{
+    height: auto !important;
+    padding: 10px 0;
+}
+
+div.btn_group.form_btn>button{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+div.btn_group.form_btn>button::after{
+    height: 100%;
+    width: 100%;
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    font-family: 'Font-Awesome';
+    font-size: 25px;
+    color: #ffffff;
+    padding: 7px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+
+}
+button#cancel{
+    background-color: #ff0000;
+    color: #ffffff;
+}
+button#cancel::after{
+    content: '\f00d';
+}
+button#confirm{
+    background-color: #000639;
+    color: #ffffff;
+}
+button#confirm::after{
+    content: '\f00c'
+}
+
+div.coverLayer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 2000;
+    display: block;
+    background-color: #121212;
+    opacity: 0.8;
+}
+div.card{
+    border: 1px solid #121212;
+    width: 400px;
+    height: 250px;
+    border-radius: 5px;
+    display: block;
+    position: absolute;
+    background-color: #ffffff;
+    margin: 0 auto;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 3000;
+    opacity: 1;
+    background-image: url("../images/map.jpg");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+div.logo{
+    width: 100%;
+    height: 50px;
+    padding: 5px 0;
+    display: block;
+    position: relative;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: 2px solid rgba(255,165,0,1);
+    text-align: center;
+    background-image: linear-gradient(45deg, rgba(255, 0, 0, 0.8),rgba(255,165,0,1));
+}
+div.logo>h4,
+div.logo>p{
+    color: #121212;
+    text-transform: capitalize;
+}
+div.logo>h4{
+    font-weight: bold;
+    font-size: 16px;
+    font-family: 'Roboto-Regular';
+}
+div.logo>p{
+    font-weight: bold;
+    font-size: 14px;
+    font-family: 'Roboto-Light';
+}
+div.body{
+    height: 200px;
+    padding: 10px 12px;
+    display: flex;
+
+}
+div.passport{
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin: 0;
+    padding: 5px;
+}
+div.passport>img{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: block;
+    border-radius: 5px;
+}
+div.details{
+    width: 250px;
+    height: 100%;
+    display: block;
+    position: relative;
+    padding: 5px;
+}
+div.details>div{
+    height: calc(100%/6);
+    padding: 4px 5px;
+    width: 100%;
+    display: flex;
+    align-content: center;
+    position: relative;
+}
+div.details>div>div.special{
+    width: 50%;
+    display: block;
+    float: left;
+}
+div.details>div>p,
+div.details>div>div.special>p{
+    color: #444444;
+    font-family: 'Roboto-Light';
+    font-size: 12px;
+    font-weight: 700;
+    position: relative;
+    display: block;
+    float: left;
+    padding: 2px 0;
+}
+div.details>div>p.details,
+div.details>div>div.special>p.details{
+    font-family: 'Roboto-bold';
+    font-weight: 500;
+    font-size: 15px;
+    padding: 0px 10px;
     text-transform: uppercase;
 }
-div.formContent>div>input:focus,select:focus{
-    border-bottom: 1px solid rgb(255,165,0,1);
+div.details>div>p.name{
+    font-family: 'Roboto-bold';
+    font-weight: 500;
+    font-size: 15px;    
+    text-transform: uppercase;
+}
+
+
+div.processing{
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: relative;
+}
+
+
+/* For the Completion Page */
+div#completed{
+    height: 280px;
+    width: 500px;
+    padding: 5px;
+    position: relative;
+    display: block;
+    top: 45%;
+    transform: translateY(-55%);
+    border-radius: 5px;
+    margin: 0px auto;
+    border: 2px solid #cccccc;
+    box-shadow: 2px 4px 15px 0px #cccccc;
+}
+div.completedIcon{
+    height: 170px;
+    width: 170px;
+    border-radius: 85px;
+    border: none;
+    position: relative;
+    padding: 0;
+    margin: 0 auto;
+    background-image: url("../images/complete.svg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+h3.inform{
+    font-size: 24px;
+    font-family: "Roboto-Regular";
+    color: #333333;
+    text-align: center;
+}
+h4.action{
+    font-size: 18px;
+    font-family: "Roboto-Light";
+    text-align: center;
+    padding: 10px 0;
+}
+
+div.loader{
+    width: 100%;
+    height: auto;
+    padding: 5px 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+div.loader>div{
+    height: 8px;
+    width: 8px;
+    display: block;
+    float: left;
+    margin: 0 5px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    background-color: #ffffff;
+    transition: all 300ms;
+}
+div.loader>div.active{
+    border: 1px solid rgba(255,165,0,1);
+    background-color: rgba(255,165,0,1);
 }

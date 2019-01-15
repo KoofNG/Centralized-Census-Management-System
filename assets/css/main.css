@@ -71,7 +71,7 @@ h3{
 	font-weight: 500;
 	padding: 20px 0;
 }
-p,div.loginInfo>label{
+h3.section-header,p,div.loginInfo>label{
 	font-family: "Roboto-Light";
 	color: var(--littleP);
 	font-size: 16px;
@@ -229,6 +229,7 @@ span#search:hover::after{
 }
 
 
+/* Styling the Left Sidebar */
 
 div#sidebar{
 	position: relative;
@@ -385,6 +386,10 @@ div#rightbar{
 	padding: 80px 30px 30px 30px;
 }
 
+/* Content */
+div#mainEnv{
+	padding: 0px 10px;
+}
 
 /* Search Forms */
 div.searchForms{
@@ -392,14 +397,14 @@ div.searchForms{
 	position: relative;
 	height: auto;
 	width: 100%;
-	/* padding: 5px 10px;
-	box-shadow: 0px 0px 5px 0px #121212; */
-	border-radius: 4px;
+	padding: 10px 0px 15px 0px;
+	border-bottom: 1px solid var(--sidebar); 
 }
-div.searchForms>p.heading{
-	font-weight: 500;
+div.searchForms>p.heading,
+h3.section-header{
+	font-weight: bold;
 	font-size: 22px;
-	padding-bottom: 10px;
+	padding-bottom: 13px;
 }
 div.searchForms>div.form{
 	display: flex;
@@ -408,9 +413,11 @@ div.searchForms>div.form{
 }
 div.searchForms>div.form>div{
 	width: 25%;
+	height: 35px !important;
+	max-height: 35px !important;
 }
 div.searchForms>div.form>div:nth-child(even){
-	margin-left: 10px;
+	margin: 0px 10px;
 }
 div.searchForms>div.form>div>label{
 	font-family: 'Roboto-Light';
@@ -422,45 +429,73 @@ div.searchForms>div.form>div>label{
 div.searchForms>div.form>div>input{
 	width: 100%;
 	height: 35px;
-	padding: 5px 10px;
+	padding: 5px 10px 5px 40px;
 	border: 1px solid #cccccc;
 	border-radius: 4px;
+	transition: all 3ms;
+	background: transparent;
+}
+div.searchForms>div.form>div>input:focus{
+	border: 1px solid var(--sidebar);
+	outline: none;
+}
+
+div.searchForms>div.form>div>input[name=cardno]{
+	text-transform: uppercase;
+}
+
+div.userName::after,
+div.userCardNo::after{
+	height: 35px;
+	width: 35px;
+	padding: 4.5px 3.5px;
+	position: relative;
+	content: '';
+	text-align: center;
+	color: var(--sidebar);
+	font-family: "Font-Awesome";
+	font-size: 24px;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	top: -35px;
+	left: 3px;
+	box-sizing: border-box;
+}
+div.userName::after{ 
+	content: "\f007"; 
+}
+div.userCardNo::after{
+	content: "\f2bb";
 }
 
 /* Styling Search Button */
+div#buttons{
+	width: auto;
+}
 button#searchUser{
-	display: inline-block;
-	border-radius: 4px;
-	background-color: #f4511e;
-	border: none;
+	height: 35px;
+	width: auto;
+	background-color: var(--sidebar);
 	color: #ffffff;
 	text-align: center;
-	font-size: 16px;
-	padding: 8.5px 15px;
-	width: auto;
+	font-size: 15px;
+	font-weight: 500;
+	font-family: "Roboto-Regular";
+	padding: 8.5px 20px;
+	border-radius: 4px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
 	transition: all 0.5s;
-	cursor: pointer;
-	margin: 0 7.5px;
 }
-/*
-button#searchUser span{
-	cursor: pointer;
-	display: inline-block;
-	position: relative;
-	transition: 0.5s;
+
+button#searchUser:hover,
+button#searchUser:focus{
+	background-color: #ffffff;
+	border: 1px solid var(--sidebar);
+	color: var(--sidebar);
+	padding: 6.5px 22px;
+	font-weight: bold;
 }
-button#searchUser span:after{
-	content: '\00bb';
-	position: absolute;
-	opacity: 0;
-	top: 0;
-	right: -20px;
-	transition: 0.5s;
-}
-button#searchUser:hover span{
-	padding-right: 25px;
-}
-button#searchUser:hover span::after{
-	opacity: 1;
-	right: 0;;
-} */

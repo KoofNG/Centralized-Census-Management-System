@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Welcome - Reports</title>
     <link rel="stylesheet" href="../assets/css/main.css">
+    <!-- Javascript Dependencies -->
+    <script src="../assets/js/vue.js"></script>    
+    <script src="../assets/js/axios.min.js"></script>
 </head>
 <body>
     <div id="app">
@@ -19,28 +22,35 @@
                 </div>
             </div>
             <div id="sidebar">
-                <div class="header">
-                    <a href="./index.php">ONDO-CCMS</a>
-                </div>
-                <div class="navigation">
-                    <ul>
-                        <li><a href="./index.php"><span id='overview'></span>Dashboard</a></li>
-                        <li><a href="./reports.php"><span id='reports'></span>View Reports</a></li>
-                        <li><a href="./generateReports.php"><span id='greports'></span>Generate Reports</a></li>
-                        <li><a href="" id='moreRecords'><span id='records'></span>Records</a>
-                            <ul class='moreLinks'>
-                                <li><a href="./update.php">Update Records</a></li>
-                                <li><a href="./birth.php">Birth Records</a></li>
-                                <li><a href="./death.php">Death Records</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="./accounts.php"><span id='accounts'></span>Accounts</a></li>
-
-                    </ul>
-                </div>
+                <?php require_once('./pages/navigation.php')?>
             </div> 
             <div id="rightbar">            
-                <div id="mainEnv"></div>
+                <div id="mainEnv">
+                    <h3 class="section-header">Existing Database Records</h3>
+
+                    <div class="table-responsive">
+                        <table id="dbRecords" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Census No</th> 
+                                    <th>Full Name</th>
+                                    <th>Date of Birth</th>
+                                    <th>Gender</th>
+                                    <th>Ethnic Group</th>
+                                    <th>State of Origin</th>
+                                    <th>LGA</th>
+                                    <th>Hometown</th>
+                                    <th>Religion</th>
+                                    <th>Phone Number</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

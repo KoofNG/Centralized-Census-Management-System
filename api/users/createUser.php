@@ -6,36 +6,37 @@
     header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods,Authorization, X-Requested-With');
 
     include_once '../../config/database.php';
-    include_once '../../modules/post.php';
+    include_once '../../modules/core.php';
 
     //Instantiate DB & connect
     $database = new Database();
     $db = $database->connect();
 
     //Instantiate Post
-    $post = new Post($db);
+    $createNewUser = new RegisteredUsers($db);
 
     //Get the Raw Posted Data
-    $data = json_decode(file_get_contents("php://input"));
-    $post->fullname = $data->fullname;
-    $post->dob = $data->dob;
-    $post->age = $data->age;
-    $post->gender = $data->gender;
-    $post->ethnicgroup = $data->ethnicgroup;
-    $post->stateOfOrigin = $data->stateOfOrigin;
-    $post->lga = $data->lga;
-    $post->hometown = $data->hometown;
-    $post->stateOfResidence = $data->stateOfResidence;
-    $post->lgaOfResidence = $data->lgaOfResidence;
-    $post->religion = $data->religion;
-    $post->occupation = $data->occupation;
-    $post->phoneNumber = $data->phoneNumber;
-    $post->email = $data->email;
-    $post->profilepicture = $data->profilepicture;
+    $userData = json_decode(file_get_contents("php://input"));
+
+    $createNewUser->fullName = $userData->fullName;
+    $createNewUser->dob = $userData->dob;
+    $createNewUser->age = $userData->age;
+    $createNewUser->gender = $userData->gender;
+    $createNewUser->ethnicGroup = $userData->ethnicGroup;
+    $createNewUser->stateOfOrigin = $userData->stateOfOrigin;
+    $createNewUser->lga = $userData->lga;
+    $createNewUser->hometown = $userData->hometown;
+    $createNewUser->stateOfResidence = $userData->stateOfResidence;
+    $createNewUser->lgaOfResidence = $userData->lgaOfResidence;
+    $createNewUser->religion = $userData->religion;
+    $createNewUser->occupation = $userData->occupation;
+    $createNewUser->phoneNumber = $userData->phoneNumber;
+    $createNewUser->email = $userData->email;
+    $createNewUser->profilePicture = $userData->profilePicture;
 
 
     //Create User
-    if ($post->createUser()){
+    if ($createNewUser->createUser()){
         echo json_encode(
             array('Message' => 'User Form Submitted')
         );
@@ -44,4 +45,3 @@
             array('Message' => 'User Form not Submitted')
         );
     }
-?>

@@ -4,34 +4,35 @@
     header('Content-Type: application/json');
 
     include_once '../../config/database.php';
-    include_once '../../modules/post.php';
+    include_once '../../modules/core.php';
 
     //Instantiate DB & connect
     $database = new Database();
     $db = $database->connect();
 
     //Instantiate Post
-    $post = new Post($db);
+    $User = new RegisteredUsers($db);
 
-    //
-    $result = $post->readUsers();
+    //Setting the Reading User Class
+    $result = $User->readUsers();
+
     $num = $result->rowCount();
 
     if ($num > 0){
         //Post Array
         $post_arr = array();
-        $post_arr['data'] = array();
+        $post_arr['Users'] = array();
 
         while($row = $result->fetch(PDO::FETCH_ASSOC)){
             extract($row);
 
             $post_item = array(
-                'id' => $userid,
-                'fullname' => $fullname,
+                'userId' => str_pad($userId, 4, '0', STR_PAD_LEFT),
+                'fullName' => $fullName,
                 'dob' => $dob,
                 'age' => $age,
                 'gender' => $gender, 
-                'ethnicgroup' => $ethnicgroup,
+                'ethnicGroup' => $ethnicGroup,
                 'stateOfOrigin' => $stateOfOrigin,
                 'lga' => $lga,
                 'hometown' => $hometown,
@@ -41,9 +42,9 @@
                 'occupation' => $occupation, 
                 'phoneNumber' => $phoneNumber,
                 'email' => $email,
-                'profilepicture' => $profilepicture,
+                'profilePicture' => $profilePicture,
             );
-            array_push($post_arr['data'], $post_item);
+            array_push($post_arr['Users'], $post_item);
         }
         //Turn to JSON
         echo json_encode($post_arr);
@@ -53,5 +54,3 @@
             array('message' => 'No Records Found')
         ); 
     }
-
-?>

@@ -6,38 +6,38 @@
     header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods,Authorization, X-Requested-With');
 
     include_once '../../config/database.php';
-    include_once '../../modules/post.php';
+    include_once '../../modules/core.php';
 
     //Instantiate DB & connect
     $database = new Database();
     $db = $database->connect();
 
     //Instantiate Post
-    $post = new Post($db);
+    $updateSingleUser = new RegisteredUsers($db);
 
     //Get the Raw Posted Data
     $data = json_decode(file_get_contents("php://input"));
 
-    $post->userid = $data->id;
-    $post->fullname = $data->fullname;
-    $post->dob = $data->dob;
-    $post->age = $data->age;
-    $post->gender = $data->gender;
-    $post->ethnicgroup = $data->ethnicgroup;
-    $post->stateOfOrigin = $data->stateOfOrigin;
-    $post->lga = $data->lga;
-    $post->hometown = $data->hometown;
-    $post->stateOfResidence = $data->stateOfResidence;
-    $post->lgaOfResidence = $data->lgaOfResidence;
-    $post->religion = $data->religion;
-    $post->occupation = $data->occupation;
-    $post->phoneNumber = $data->phoneNumber;
-    $post->email = $data->email;
-    $post->profilepicture = $data->profilepicture;
+    $updateSingleUser->userId = str_pad($data->userId, 4, '0', STR_PAD_LEFT);
+    $updateSingleUser->fullName = $data->fullName;
+    $updateSingleUser->dob = $data->dob;
+    $updateSingleUser->age = $data->age;
+    $updateSingleUser->gender = $data->gender;
+    $updateSingleUser->ethnicGroup = $data->ethnicGroup;
+    $updateSingleUser->stateOfOrigin = $data->stateOfOrigin;
+    $updateSingleUser->lga = $data->lga;
+    $updateSingleUser->hometown = $data->hometown;
+    $updateSingleUser->stateOfResidence = $data->stateOfResidence;
+    $updateSingleUser->lgaOfResidence = $data->lgaOfResidence;
+    $updateSingleUser->religion = $data->religion;
+    $updateSingleUser->occupation = $data->occupation;
+    $updateSingleUser->phoneNumber = $data->phoneNumber;
+    $updateSingleUser->email = $data->email;
+    $updateSingleUser->profilePicture = $data->profilePicture;
 
 
     //Create User
-    if ($post->UpdateUser()){
+    if ($updateSingleUser->UpdateUser()){
         echo json_encode(
             array('Message' => 'User Form Updated')
         );
@@ -46,4 +46,3 @@
             array('Message' => 'User Form not Updated')
         );
     }
-?>
