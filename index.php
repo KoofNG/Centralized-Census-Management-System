@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,16 +9,17 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <!-- Javascript Dependencies -->
     <script src="./assets/js/vue.js"></script>
-    <script src="./assets/js/axios.min.js"></script>
 </head>
 
 <body>
     
     <div id="app">
         <div class="wrapper">
-            <div class="coverLayer" v-if='hiddenLayer'>
+            <!-- Cover Layer -->
+            <div class="coverLayer loading" v-bind:class="{ active: isActive }">
             </div>            
-            <div class="card" v-if='hiddenLayer'>
+            <!-- Main Card -->
+            <div class="card loading" v-bind:class="{ active: isActive }">
                 <div class="logo">
                     <h4>ondo state centralized census board</h4>
                     <p>census  card</p>
@@ -34,34 +34,32 @@
                             <p class="details">{{}}</p>
                         </div>
                         <div>
-                            <p class='name'>{{}}</p>
+                            <p class='name'>{{fullName}}</p>
                         </div>
                         <div>
                             <div class="special">
                                 <p>Age</p>
-                                <p class="details">{{}}</p>
+                                <p class="details">{{age}}</p>
                             </div>
                             <div class="special">
                                 <p>Gender</p>
-                                <p class="details">{{}}</p>
+                                <p class="details">{{gender}}</p>
                             </div>
                         </div>
                         <div>
                             <p>Ethnic Group</p>
-                            <p class="details">{{}}</p>
+                            <p class="details">{{ethnicGroup}}</p>
                         </div>
                         <div>
                             <p>State of Origin</p>
-                            <p class="details">{{}}</p>
+                            <p class="details">{{stateOfOrigin}}</p>
                         </div>
                         <div>
                             <p>Phone Number</p>
-                            <p class="details">{{}}</p>
+                            <p class="details">{{phoneNumber}}</p>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="footer"></div> -->
-
             </div>
 
             <div class="leftTab">
@@ -79,7 +77,7 @@
                 </div>
             </div>
             <div class="rightTab">
-                <!-- <div id="loader"></div>
+                <div id="loader"></div>
                 <div class="content" v-if="isInitStarted">
                     <div class="brandName r_tab">
                         <p>welcome to</p>
@@ -93,7 +91,6 @@
                         <button type="submit" v-on:click="getStarted">Get Started</button>
                     </div>
                 </div>
-
                 <div class="wrap_form" v-if="isStarted">
                     <div id="alert" class="alert">
                         <p id="msgAlert">Whats up guy</p>
@@ -125,8 +122,8 @@
                                     <label for="gender">Gender</label>
                                     <select name="gender" v-model="gender" id="gender">
                                         <option value="" disabled>Gender</option>
-                                        <option value="F">Female</option>
-                                        <option value="M">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Male">Male</option>
                                     </select>
                                 </div>
                                 <div>
@@ -151,15 +148,15 @@
                             <form action="">
                                 <div>
                                     <label for="stateOfOrigin">State of origin</label>
-                                    <select name="" v-model="stateOfOrigin" id="stateOfOrigin">
+                                    <select name="" v-model="stateOfOrigin" id="stateOfOrigin">                                    
                                         <option value="" disabled></option>
-                                        <option value="ondo">Ondo</option>
+                                        <option v-for="e in AvailableStates" v-bind:value="e">{{e}}</option>
                                     </select>
                                 </div>
                                 <div>
                                     <label for="lga">local government area</label>
                                     <select name="lga" id="" v-model="lga">
-                                        <option value="" disabled>LGA</option>
+                                        <option value="" disabled>LGA</option>                                        
                                         <option value="ondo">Ondo</option>
                                         <option value="owo">Owo</option>
                                         <option value="akure">Akure</option>
@@ -182,11 +179,7 @@
                                     <label for="">lga of residence</label>
                                     <select name="" v-model="lgaOfResidence" id="">
                                         <option value="" disabled>LGA</option>
-                                        <option value="ondo">Ondo</option>
-                                        <option value="owo">Owo</option>
-                                        <option value="akure">Akure</option>
-                                        <option value="akoko">Akoko</option>
-                                        <option value="ore">Ore</option>
+                                        <option v-for="lga in ondoLGA" v-bind:value="lga">{{lga}}</option>
                                     </select>
                                 </div>
                             </form>
@@ -239,59 +232,59 @@
                             <div class="wrap_forms">
                                 <div class="form_details">
                                     <p>full name</p>
-                                    <h5>Israel Michael Akpan</h5>
+                                    <h5>{{fullName}}</h5>
                                 </div>
                                 <div class="form_details">
                                     <p>date of birth</p>
-                                    <h5>24-05-1995</h5>
+                                    <h5>{{dob}}</h5>
                                 </div>
                                 <div class="form_details">
                                     <p>age</p>
-                                    <h5>24</h5>
+                                    <h5>{{age}}</h5>
                                 </div>
                                 <div class="form_details">
                                     <p>gender</p>
-                                    <h5>Male</h5>
+                                    <h5>{{gender}}</h5>
                                 </div>
                                 <div class="form_details">
                                     <p>ethnic group</p>
-                                    <h5>Ibibio</h5>
+                                    <h5>{{ethnicGroup}}</h5>
                                 </div>
                                 <div class="form_details">
                                     <p>state of origin</p>
-                                    <h5>Akwa Ibom</h5>
+                                    <h5>{{stateOfOrigin}}</h5>
                                 </div>
                                 <div class="form_details">
                                     <p>local government area</p>
-                                    <h5>Uyo</h5>
+                                    <h5>{{lga}}</h5>
                                 </div>
                                 <div class="form_details">
                                     <p>hometown</p>
-                                    <h5>Uyo</h5>
+                                    <h5>{{hometown}}</h5>
                                 </div>
                                 <div class="form_details">
                                     <p>state of residence</p>
-                                    <h5>Ondo</h5>
+                                    <h5>{{stateOfResidence}}</h5>
                                 </div>
                                 <div class="form_details">
                                     <p>LGA of residence</p>
-                                    <h5>Owo</h5>
+                                    <h5>{{lgaOfResidence}}</h5>
                                 </div>
                                 <div class="form_details">
                                     <p>religion</p>
-                                    <h5>Christianity</h5>
+                                    <h5>{{religion}}</h5>
                                 </div>
                                 <div class="form_details">
                                     <p>occupation</p>
-                                    <h5>Software Developer</h5>
+                                    <h5>{{occupation}}</h5>
                                 </div>
                                 <div class="form_details">
                                     <p>phone number</p>
-                                    <h5>+2348132218543</h5>
+                                    <h5>{{phoneNumber}}</h5>
                                 </div>
                                 <div class="form_details">
                                     <p>email</p>
-                                    <h5 class="email">koof.learn@gmail.com</h5>
+                                    <h5 class="email">{{email}}</h5>
                                 </div>
 
                             </div>
@@ -301,9 +294,8 @@
                             </div>
                         </div>
                     </div>
-                </div> -->
-
-                <div class="processing">
+                </div> 
+                <div class="processing" v-bind:class="{ active: isProcessing}">
                     <div id="completed">
                         <div class="completedIcon"></div>
                         <h3 class="inform">Your form was submitted successfully.</h3>
@@ -315,28 +307,14 @@
                             <div></div>
                         </div>
                     </div>
-
                 </div> 
-
             </div>
         </div>
     </div>
 
+    
+    <script src="./assets/js/axios.min.js"></script>
     <script src="./assets/js/databinds.js"></script>
-    <script>
-        let lineLoad = document.querySelectorAll(".loader>div");
-        for (let index = 0; index < lineLoad.length; index++) {
-            let incremental = 0;
-            setInterval(() => {
-                incremental++;
-                if (incremental === lineLoad.length) {
-                    lineLoad[index].classList.remove('active');
-                    incremental = 0
-                }
-                lineLoad[incremental].classList.add('active');
-            }, 600);
-        }
-    </script>
 </body>
 
 </html>

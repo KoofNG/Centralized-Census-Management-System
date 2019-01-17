@@ -329,6 +329,9 @@ div.tab>form>div>select{
 input[type=date]{
     text-transform: uppercase !important;
 }
+input[type=email]{
+    text-transform: lowercase !important;
+}
 input[id=age]:disabled{
     cursor: not-allowed;
 }
@@ -482,6 +485,12 @@ button#confirm::after{
     content: '\f00c'
 }
 
+div.loading{
+    display: none;
+}
+div.loading.active{
+    display: block;
+}
 div.coverLayer{
     position: absolute;
     top: 0;
@@ -491,7 +500,6 @@ div.coverLayer{
     width: 100%;
     height: 100vh;
     z-index: 2000;
-    display: block;
     background-color: #121212;
     opacity: 0.8;
 }
@@ -500,7 +508,6 @@ div.card{
     width: 400px;
     height: 250px;
     border-radius: 5px;
-    display: block;
     position: absolute;
     background-color: #ffffff;
     margin: 0 auto;
@@ -611,8 +618,11 @@ div.details>div>p.name{
 div.processing{
     height: 100%;
     width: 100%;
-    display: block;
+    display: none;
     position: relative;
+}
+div.processing.active{
+    display: block;
 }
 
 

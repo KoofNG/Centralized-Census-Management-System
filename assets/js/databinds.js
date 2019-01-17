@@ -15,6 +15,17 @@ let mainApp = new Vue({
         occupation: '',
         phoneNumber: '',
         email: '',
+        ondoLGA: [
+            "Akoko North-East", "Akoko North-West", "Akoko South-East",
+            "Akoko South-West", "Akure North", "Akure South",
+            "Ese Odo", "Idanre", "Ifedore", "Ilaje", "Ile Oluji/Okeigbo", "Irele",
+            "Odigbo", "Okitipupa", "Ondo East", "Ondo West", "Ose", "Owo"],
+        AvailableStates: [
+            "Abia","Adamawa","Akwa Ibom","Anambra","Bauchi","Bayelsa","Benue","Borno",
+            "Cross River","Delta","Ebonyi","Edo","Ekiti","Enugu","FCT","Gombe","Imo",
+            "Jigawa","Kaduna","Kano","Katsina","Kebbi","Kogi","Kwara","Lagos","Nasarawa",
+            "Niger","Ogun","Ondo","Osun","Oyo","Plateau","Rivers","Sokoto","Taraba","Yobe","Zamfara"
+        ],
         hiddenLayer: false,
         isInitStarted: true,
         isStarted: false,
@@ -23,8 +34,11 @@ let mainApp = new Vue({
         formThree: false,
         formCompleted: false,
         precessing: false,
-        growthBar: 33.3
+        growthBar: 33.3,
+        isActive: false,
+        isProcessing: false
     },
+
 
     methods: {
         popAlert: function () {
@@ -112,43 +126,48 @@ let mainApp = new Vue({
 
         confirmForm: function () {
             this.isStarted = !this.isStarted;
-            this.precessing = !this.precessing;
-        }
+            this.isProcessing = !this.isProcessing;
 
+            const FormData = {
+                fullName: this.fullName,
+                dob: this.dob,
+                age: this.age,
+                gender: this.gender,
+                ethnicGroup: this.ethnicGroup,
+                stateOfOrigin: this.stateOfOrigin,
+                lga: this.lga,
+                hometown: this.hometown,
+                stateOfResidence: this.stateOfResidence,
+                lgaOfResidence: this.lgaOfResidence,
+                religion: this.religion,
+                occupation: this.occupation,
+                phoneNumber: this.phoneNumber,
+                email: this.email
+            }
+
+            axios.post('http://localhost/Centralized-Census-Management-System/api/users/createUser.php', FormData)
+                .then(res => console.log(res))
+                .catch(error => console.log(error));
+
+            let lineLoad = document.querySelectorAll(".loader>div");
+            for (let index = 0; index < lineLoad.length; index++) {
+                let incremental = 0;
+                setInterval(() => {
+                    incremental++;
+                    if (incremental === lineLoad.length) {
+                        lineLoad[index].classList.remove('active');
+                        incremental = 0
+                    }
+                    lineLoad[incremental].classList.add('active');
+                }, 400);
+            }
+
+            setTimeout(() => {
+                this.isProcessing = !this.isProcessing;
+                this.isActive = !this.isActive;
+            }, 5200);
+        },
     },
 
-    /* computed: {
-        
-    } */
 });
 
-/* let lineLoad = document.querySelectorAll(".loader>div");
-for (let index = 0; index < lineLoad.length; index++) {
-    let incremental = 0;
-    setInterval(() => {
-        incremental++;
-        if (incremental === lineLoad.length) {
-            lineLoad[index].classList.remove('active');
-            incremental = 0
-        }
-        lineLoad[incremental].classList.add('active');
-    }, 600);
-} */
-
-
-/* const FormData = {
-            fullName: this.fullName,
-            dob: this.dob,
-            age: this.age,
-            gender: this.gender,
-            ethnicGroup: this.ethnicGroup,
-            stateOfOrigin: this.stateOfOrigin,
-            lga: this.lga,
-            hometown: this.hometown,
-            stateOfResidence: this.stateOfResidence,
-            lgaOfResidence: this.lgaOfResidence,
-            religion: this.religion,
-            occupation: this.occupation,
-            phoneNumber: this.phoneNumber,
-            email: this.email
-        } */

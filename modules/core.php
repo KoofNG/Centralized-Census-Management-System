@@ -6,7 +6,7 @@
         private $table = 'tbl_registered_citizens';
 
         //USER Properties
-        public $userId;
+        //public $userId;
         public $fullName;
         public $dob;
         public $age;
@@ -22,9 +22,6 @@
         public $phoneNumber;
         public $email;
         public $profilePicture;
-        public $created;
-        public $lastModified;
-        public $timeStamp;
 
         //Constructor with DB
         public function __construct($db){
@@ -55,22 +52,22 @@
 
 
              //Set Properties
-             $this->userId = $row['userId'];
-             $this->fullName = $row['fullName'];
-             $this->dob = $row['dob'];
-             $this->age = $row['age'];
-             $this->gender = $row['gender'];
-             $this->ethnicGroup = $row['ethnicGroup'];
-             $this->stateOfOrigin = $row['stateOfOrigin'];
-             $this->lga = $row['lga'];
-             $this->hometown = $row['hometown'];
-             $this->stateOfResidence = $row['stateOfResidence'];
-             $this->lgaOfResidence = $row['lgaOfResidence'];
-             $this->religion = $row['religion'];
-             $this->occupation = $row['occupation'];
-             $this->phoneNumber = $row['phoneNumber'];
-             $this->email = $row['email'];
-             $this->profilePicture = $row['profilePicture'];
+            $this->userId = $row['userId'];
+            $this->fullName = $row['fullName'];
+            $this->dob = $row['dob'];
+            $this->age = $row['age'];
+            $this->gender = $row['gender'];
+            $this->ethnicGroup = $row['ethnicGroup'];
+            $this->stateOfOrigin = $row['stateOfOrigin'];
+            $this->lga = $row['lga'];
+            $this->hometown = $row['hometown'];
+            $this->stateOfResidence = $row['stateOfResidence'];
+            $this->lgaOfResidence = $row['lgaOfResidence'];
+            $this->religion = $row['religion'];
+            $this->occupation = $row['occupation'];
+            $this->phoneNumber = $row['phoneNumber'];
+            $this->email = $row['email'];
+            $this->profilePicture = $row['profilePicture'];
         }
 
         //Register a User
@@ -91,8 +88,7 @@
                religion = :religion,
                occupation = :occupation, 
                phoneNumber = :phoneNumber,
-               email = :email,
-               profilePicture = :profilePicture';
+               email = :email';
 
             //Prepare Statement
             $stmt = $this->conn->prepare($query);
@@ -112,7 +108,7 @@
             $this->occupation = htmlspecialchars(strip_tags($this->occupation));
             $this->phoneNumber = htmlspecialchars(strip_tags($this->phoneNumber));
             $this->email = htmlspecialchars(strip_tags($this->email));
-            $this->profilePicture = htmlspecialchars(strip_tags($this->profilePicture));
+            //$this->profilePicture = htmlspecialchars(strip_tags($this->profilePicture));
 
             //Bind Data
             $stmt->bindParam(':fullName', $this->fullName);
@@ -129,15 +125,15 @@
             $stmt->bindParam(':occupation', $this->occupation);
             $stmt->bindParam(':phoneNumber', $this->phoneNumber);
             $stmt->bindParam(':email', $this->email);
-            $stmt->bindParam(':profilePicture', $this->profilePicture);
+            //$stmt->bindParam(':profilePicture', $this->profilePicture);
 
             //Execute Query
 
             if($stmt->execute()){
                 return true;
-            }
+            } 
             printf("Error: %s.\n", $stmt->error);
-            return false;
+            return false;            
         }
 
         //Update Post
@@ -212,3 +208,4 @@
             
         }
     }
+?>

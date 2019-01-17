@@ -17,7 +17,6 @@
 
     //Get the Raw Posted Data
     $userData = json_decode(file_get_contents("php://input"));
-
     $createNewUser->fullName = $userData->fullName;
     $createNewUser->dob = $userData->dob;
     $createNewUser->age = $userData->age;
@@ -32,16 +31,21 @@
     $createNewUser->occupation = $userData->occupation;
     $createNewUser->phoneNumber = $userData->phoneNumber;
     $createNewUser->email = $userData->email;
-    $createNewUser->profilePicture = $userData->profilePicture;
+    //$createNewUser->profilePicture = $userData->profilePicture;
 
 
     //Create User
     if ($createNewUser->createUser()){
+        http_response_code(201);
         echo json_encode(
-            array('Message' => 'User Form Submitted')
+            array('Message' => 'User Form Submitted')            
         );
     } else{
+        http_response_code(503);
         echo json_encode(
             array('Message' => 'User Form not Submitted')
         );
     }
+
+
+?>
