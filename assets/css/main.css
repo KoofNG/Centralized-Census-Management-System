@@ -397,7 +397,7 @@ div.searchForms{
 	position: relative;
 	height: auto;
 	width: 100%;
-	padding: 10px 0px 15px 0px;
+	padding: 0px 0px 15px 0px;
 	border-bottom: 1px solid var(--sidebar); 
 }
 div.searchForms>p.heading,
@@ -405,6 +405,7 @@ h3.section-header{
 	font-weight: bold;
 	font-size: 22px;
 	padding-bottom: 13px;
+	padding-top: 0px;
 }
 div.searchForms>div.form{
 	display: flex;
@@ -499,3 +500,426 @@ button#searchUser:focus{
 	padding: 6.5px 22px;
 	font-weight: bold;
 }
+
+
+/* For the records table */
+.table-row{
+	width: 100%;
+	height: auto;
+	padding: 2.5px 0px;
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+	justify-content: space-between;
+	position: relative;
+	background-color: #e3e3e3;
+	transition: background-color 300ms;
+}
+.table-row:nth-child(odd){
+	margin: 2px 0;
+}
+.table-row:hover{
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+}
+div.userImage{
+	width: 35px;
+	height: 35px;
+	position: static;
+	display: block;
+	border-radius: 50%;
+	background-color: #e3e3e3;
+	border: 1px solid #ffffff;
+	margin: 0 auto;
+}
+div.userImage>img{
+	width: 100%;
+	height: 100%;
+	display: block; 	
+	border-radius: 50%;
+}
+tbody>tr>td>p{
+    padding: 8.5px 0;
+    height: 100%;
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    text-transform: capitalize;
+	font-family: 'Roboto-Light';
+	font-size: 14px;
+	text-transform: capitalize;
+	color: #121212;
+}
+tbody>tr>td>p.cNumber{
+	font-weight: 700;
+	color: #000000;
+
+}
+div.action{
+	width: 35px;
+	height: 35px;
+	position: relative;
+	display: block;
+	padding: 2.5px;
+}
+div.moreBtn{
+	width: 30px;
+	height: 30px;
+	border-radius: 15px;
+	background: #cccccc;
+	display: block;
+	position: relative;
+	cursor: pointer;
+	margin: 0 auto;
+}
+div.moreBtn::after{
+	content: '\f142';
+	font-family: 'Font-Awesome';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: block;
+	padding: 6.5px 0;
+	font-size: 20px;
+	text-align: center;
+	color: #ffffff;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+/* Designing the Records Table */
+table{
+	width: 100%;
+	height: auto;
+	position: relative;
+	display: inline-block;
+	border-spacing: 0px;
+}
+thead,tbody,tr{
+	width: 100%;
+	height: auto;
+	display: block;
+	position: relative;
+}
+thead{
+	height: 40px;
+	display: block;
+	position: relative;
+	background-color: #cccccc;
+	margin-bottom: 5px;
+}
+thead tr>th>p{
+	font-weight: 600;
+	font-family: 'Roboto-Regular';
+	font-size: 16px;
+}
+thead>tr>th{
+	padding: 10px 5px;
+}
+tbody>tr>td{
+	padding: 0px 5px;
+}
+th,td{	
+	position: relative;
+}
+tr{
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.image,.actions{
+	width: 6%;
+	text-align: center;
+	position: relative;
+}
+.name{
+	width: 30%;
+}
+.card,.combo,.religion,.soo{
+	width: calc(56% / 4);
+}
+
+
+
+
+div.mainDocs{
+	padding: 20px 0;
+	margin: 0;
+	display: inline-block;
+	position: relative;
+    width: 100%;
+    height: auto;
+}
+p#info{
+	font-weight: bold;
+    font-size: 22px;
+    padding-bottom: 13px;
+	padding-top: 0px;
+	font-family: "Roboto-Light";
+    color: var(--littleP);
+}
+
+div.tabsNavigation{
+	height: 40px;
+	width: 100%;
+	display: block;
+	position: relative;
+}
+div.tabsNavigation>ul{
+	height: 100%;
+	width: 100%;
+	display: block;
+	padding: 0;
+	margin: 0;
+}
+div.tabsNavigation>ul>li{
+	height: 100%;
+	list-style: none;
+	display: block;
+	float: left;
+	box-sizing: border-box;
+}
+div.tabsNavigation>ul>li:nth-child(even){
+	margin: 0 10px;
+}
+div.tabsNavigation>ul>li>a{
+	padding: 10px 15px;
+	position: relative;
+	display: block;
+	text-decoration: none;
+	text-transform: capitalize;
+	font-family: "Roboto-Regular";
+    color: var(--littleP);
+	font-size: 14px;
+	font-weight: 400;
+	cursor: pointer;
+	background-color: var(--sidebar);
+	color: #ffffff;
+	border-radius: 20px;
+}
+
+div#personal,
+div#general,
+div#national,
+div#location{
+	padding: 15px 0;
+	width: 100%;
+	height: auto;
+	position: relative;
+	display: none; 
+}
+div.create_new_form>div.active,
+div.updateForm>div.active{
+	display: block !important;
+}
+
+div.updateForm>div>div{
+	width: 100%;
+	height: auto;
+	position: relative;
+	display: block;
+	padding: 3.5px 0;
+}
+div.updateForm>div>div>label{
+	display: block;
+	position: relative;
+	padding: 2.25px 0;
+	margin: 0;
+	text-transform: capitalize;
+	color: var(--littleP);
+	font-family: 'Roboto-Regular';
+	font-size: 14px;
+}
+div.updateForm>div>div>input,
+div.updateForm>div>div>select{
+    height: 35px;
+    width: 50%;
+    display: block;
+    position: relative;
+    outline: none;
+    border: 1px solid #cccccc;
+    background-color: transparent;
+    padding: 6.5px 10px;
+    font-size: 14px;
+    font-family: "Roboto-Light";
+	text-transform: capitalize;
+	border-radius: 4px;
+}
+
+div.updateForm>div>div>input[type=date]{
+	text-transform: uppercase;
+}
+div.updateForm>div>div>input[type=email]{
+	text-transform: lowercase;
+}
+::placeholder,
+::-moz-placeholder,
+::-webkit-input-placeholder{
+	color: #eeeeee;
+}
+
+div#update{
+	height: 40px;
+	width: auto;
+	position: relative;
+	display: block;
+}
+div#update>button{
+	height: 100%;
+	width: auto;
+	padding: 10px 15px;
+	position: relative;
+	display: block;
+	cursor: pointer;
+	outline: none;
+	border: none;
+	background-color: var(--sidebar);
+	border-radius: 5px;
+	color: #ffffff;
+}
+
+/* Styling the admin add new registrant form */
+div.create_new{
+	padding: 10px 0px;
+	display: block;
+	position: relative;
+	width: 100%;
+	height: auto;
+}
+div.create_new>ul{
+	width: 100%;
+	height: 40px;
+	display: block;
+	position: relative;
+	list-style: none;
+}
+div.create_new>ul>li{
+	list-style: none;
+	display: block;
+	float: left;
+	height: 100%;
+	width: auto;
+}
+div.create_new>ul>li>a{
+	display: block;
+	position: relative;
+	height: 100%;
+	width: auto;
+	padding: 11px 10px;
+	text-decoration: none;
+	text-transform: capitalize;
+	font-size: 14px;
+	font-family: 'Roboto-Regular';
+	font-weight: 400;
+	background-color: var(--sidebar);
+	color: #ffffff;
+	opacity: 0.8;
+	transition: all 300ms;
+}
+div.create_new>ul>li:nth-child(odd){
+	margin: 0px 2.5px;
+}
+div.create_new>ul>li>a:hover{
+	color: #ffffff;
+	background-color: #999999;
+	opacity: 1;
+}
+div.create_new>ul>li>a.active{
+	border-bottom: 2px solid var(--sidebar);
+	background-color: #999999;
+	color: #ffffff;
+	opacity: 1;
+}
+div.create_new_form{
+	width: 500px;
+}
+div.create_new_form>div>div{
+	display: block;
+	position: relative;
+	height: auto;
+	width: 100%;
+}
+div.create_new_form>div>div:nth-child(even){
+	margin: 2.5px 0;
+}
+div.create_new_form>div>div>label{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: auto;
+	padding: 2.5px 0 4px 0;
+	color: #121212;
+	font-family: 'Roboto-Regular';
+	font-size: 14px;
+	font-weight: 500;
+	text-transform: capitalize;
+}
+div.create_new_form>div>div>input,
+div.create_new_form>div>div>select{
+	width: 100%;
+	height: 35px;
+	display: block;
+	position: relative;
+	padding: 5px 7.5px;
+	font-family: 'Roboto-Regular';
+	font-size: 14px;
+	font-weight: normal;
+	text-transform: capitalize;
+	border: 1px solid #cccccc;
+	outline: none;
+	transition: border 300ms;
+}
+input[type=date]{
+	text-transform: uppercase !important;
+}
+div.create_new_form select:focus,
+div.create_new_form input:focus{
+	border: 1px solid var(--sidebar);
+	box-shadow: 0px 0px 10px 2px rgba(0,64,0,0.5);
+}
+
+div.actionBtn{
+	width: auto;
+	height: 40px;
+	position: relative;
+	display: block;
+}
+div.actionBtn>button{
+	height: 100%;
+	width: 150px;
+	padding: 10px 15px;
+	margin: 0;
+	box-sizing: border-box;
+	position: relative;
+	border: none;
+	outline: none;
+	background-color: var(--sidebar);
+	color: #ffffff;
+	font-family: 'Roboto-Regular';
+	font-size: 14px;
+	font-weight: 400;
+	opacity: 0.8;
+	cursor: pointer;
+}
+div.actionBtn>button::after{
+	height: 0px;
+	width: 0px;
+	position: absolute;
+	display: block;
+	box-sizing: border-box;
+	content: '';	
+	background-color: var(--lightsidebar);
+	opacity: 0.5;
+	left: 0px;
+	bottom: 0;
+	transition: all 300ms;
+}
+div.actionBtn>button:hover::after{
+	width: 100%;
+	height: 100%;
+}
+
+
+

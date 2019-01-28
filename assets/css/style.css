@@ -251,6 +251,35 @@ div.setImage{
     bottom: 10px;
     z-index: 2;
 }
+div.setImage>input{
+    outline: none;
+    border: none;
+    padding: 0;
+    margin: 0;  
+    height: 36px;
+    width: 36px;
+    display: block;
+    position: relative;
+    border-radius: 50%;
+}
+div.setImage>input::after{    
+    opacity: 1;;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    content: '\f030';
+    font-family: 'Font-Awesome';
+    font-size: 24px;
+    text-align: center;
+    padding-top: 4.5px;
+    background-color: #ffffff;
+    color: rgba(255,165,0,1);
+    border-radius: 5px;
+}
+
 div#image_section>img{
     width: 150px;
     height: 150px;
@@ -304,11 +333,11 @@ div.tab>form>div>label{
     width: 100%;
     height: auto;
     padding: 2px 0;
-    color: #444444;
+    color: #121212;
     display: block;
     position: relative;
     font-family: "Roboto-Regular";
-    font-weight: lighter;
+    font-weight: 600;
     font-size: 14px;
     text-transform: capitalize;
 }
@@ -337,7 +366,8 @@ input[id=age]:disabled{
 }
 div.tab>form>div>input:focus,
 div.tab>form>div>select:focus{
-    border-bottom: 1px solid rgb(255,165,0,1);
+    border: 1px solid rgb(255,165,0,1);
+    box-shadow: 0px 0px 10px 2px rgba(255,165,0,0.5);
 }
 
 div.btn_group{
@@ -409,8 +439,12 @@ div.wrap_forms{
     -webkit-box-sizing: border-box;
 }
 
-div.form_details{}
-
+div.form_details{
+    padding: 5px 0;
+}
+div.form_details+div.form_details{
+    border-top: 2px solid #cccccc;
+}
 div.wrap_forms>div+div{
     margin: 3px 0;
 }
@@ -462,9 +496,9 @@ div.btn_group.form_btn>button::after{
     left: 0;
     content: '';
     font-family: 'Font-Awesome';
-    font-size: 25px;
+    font-size: 22px;
     color: #ffffff;
-    padding: 7px;
+    padding: 8px 0px;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -475,14 +509,15 @@ button#cancel{
     color: #ffffff;
 }
 button#cancel::after{
-    content: '\f00d';
+    content: '\f060';
 }
 button#confirm{
     background-color: #000639;
     color: #ffffff;
 }
 button#confirm::after{
-    content: '\f00c'
+    /* content: '\f00c' */
+    content: '\f061';
 }
 
 div.loading{
@@ -573,20 +608,25 @@ div.details{
     height: 100%;
     display: block;
     position: relative;
-    padding: 5px;
+    padding: 0px 5px;
 }
 div.details>div{
-    height: calc(100%/6);
-    padding: 4px 5px;
+    height: calc(100%/7);
+    padding: 0px 5px;
     width: 100%;
     display: flex;
     align-content: center;
     position: relative;
 }
 div.details>div>div.special{
-    width: 50%;
     display: block;
     float: left;
+}
+div.details>div>div.special:first-child{
+    width: 30%;
+}
+div.details>div>div.special:last-child{
+    width: 70%;
 }
 div.details>div>p,
 div.details>div>div.special>p{
