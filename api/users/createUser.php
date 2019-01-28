@@ -31,21 +31,19 @@
     $createNewUser->occupation = $userData->occupation;
     $createNewUser->phoneNumber = $userData->phoneNumber;
     $createNewUser->email = $userData->email;
-    //$createNewUser->profilePicture = $userData->profilePicture;
+    $createNewUser->homeAddress = $userData->homeAddress;
+    $createNewUser->BVN = $userData->BVN;
+    $createNewUser->NIM = $userData->NIM;
+    $createNewUser->VIN = $userData->VIN;
+    $createNewUser->passportNumber = $userData->passportNumber;
+    $createNewUser->profilePicture = $userData->profilePicture;
 
 
     //Create User
     if ($createNewUser->createUser()){
         http_response_code(201);
-        echo json_encode(
-            array('Message' => 'User Form Submitted')            
-        );
     } else{
         http_response_code(503);
-        echo json_encode(
-            array('Message' => 'User Form not Submitted')
-        );
     }
-
-
+    
 ?>
