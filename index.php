@@ -26,12 +26,12 @@
                 </div>
                 <div class="body">
                     <div class="passport">
-                        <img src="./assets/images/koof.jpg" alt="">
+                        <img v-bind:src="profilePicture" alt="">
                     </div>
                     <div class="details">
                         <div>
                             <p>Card No</p>
-                            <p class="details">{{}}</p>
+                            <p class="details">ONCC{{userID}}</p>
                         </div>
                         <div>
                             <p class='name'>{{fullName}}</p>
@@ -45,6 +45,10 @@
                                 <p>Gender</p>
                                 <p class="details">{{gender}}</p>
                             </div>
+                        </div>
+                        <div>
+                            <p>Address</p>
+                            <p class="details">{{homeAddress}}</p>
                         </div>
                         <div>
                             <p>Ethnic Group</p>
@@ -96,8 +100,10 @@
                         <p id="msgAlert">Whats up guy</p>
                     </div>
                     <div id="image_section">
-                        <div class="setImage"></div>
-                        <img src="./assets/images/dp.png" alt="">
+                        <div class="setImage">
+                            <input type="file" name="" v-on:change="setImage">
+                        </div>
+                        <img v-bind:src="profilePicture" alt="">
                     </div>
                     <div id="tabs">
                         <div v-if="formOne" class="tab">
@@ -127,14 +133,9 @@
                                     </select>
                                 </div>
                                 <div>
-                                    <label for="ethnicGroup">Ethnic Group</label>
-                                    <select name="ethnic" v-model="ethnicGroup" id="ethnicGroup">
-                                        <option value="" disabled>Ethnic Group</option>
-                                        <option value="yoruba">Yoruba</option>
-                                        <option value="ikale">Ikale</option>
-                                        <option value="ilaje">Ilaje</option>
-                                    </select>
-                                </div>
+                                    <label for="homeAddress">Home Address</label>
+                                    <input type="text" v-model="homeAddress" name="" placeholder="eg: !2 Rufus Giwa, Way">
+                                </div>                                
                             </form>
                             <div class="btn_group">
                                 <button id="next" @click="validatePerson" type="submit">Next</button>
@@ -148,14 +149,14 @@
                             <form action="">
                                 <div>
                                     <label for="stateOfOrigin">State of origin</label>
-                                    <select name="" v-model="stateOfOrigin" id="stateOfOrigin">                                    
+                                    <select name="" v-model="stateOfOrigin">                                    
                                         <option value="" disabled></option>
                                         <option v-for="e in AvailableStates" v-bind:value="e">{{e}}</option>
                                     </select>
                                 </div>
                                 <div>
                                     <label for="lga">local government area</label>
-                                    <select name="lga" id="" v-model="lga">
+                                    <select name="lga" v-model="lga">
                                         <option value="" disabled>LGA</option>                                        
                                         <option value="ondo">Ondo</option>
                                         <option value="owo">Owo</option>
@@ -165,7 +166,7 @@
                                     </select>
                                 </div>
                                 <div>
-                                    <label for="age">Hometown</label>
+                                    <label for="">Hometown</label>
                                     <input type="text" name="" v-model="hometown" id="" placeholder="eg: owo">
                                 </div>
                                 <div>
@@ -194,6 +195,15 @@
                                 <div id="after_line" :style="{width: growthBar + '%'}"></div>
                             </div>
                             <form action="">
+                                <div>
+                                    <label for="ethnicGroup">Ethnic Group</label>
+                                    <select name="ethnic" v-model="ethnicGroup" id="ethnicGroup">
+                                        <option value="" disabled>Ethnic Group</option>
+                                        <option value="yoruba">Yoruba</option>
+                                        <option value="ikale">Ikale</option>
+                                        <option value="ilaje">Ilaje</option>
+                                    </select>
+                                </div>
                                 <div>
                                     <label for="religion">Religion</label>
                                     <select name="religion" v-model="religion" id="religion">
@@ -226,7 +236,35 @@
                                 <button id="previous" @click="previousForm" type="submit">Previous</button>
                                 <button id="next" @click="validateGeneral" type="submit">Next</button>
                             </div>
-
+                        </div>
+                        <div v-if="formFour" class="tab">
+                            <h3>National Information</h3>
+                            <div id="before_line">
+                                <div id="after_line" :style="{width: growthBar + '%'}"></div>
+                            </div>
+                            <form action="">   
+                                <div>
+                                    <label for="bvn">Bank Verification Number</label>
+                                    <input type="text" v-model="bvn" name="" placeholder="">
+                                </div>
+                                <div>
+                                    <label for="nin">National Identification Number</label>
+                                    <input type="text" v-model="nin" name="" placeholder="">
+                                </div>
+                                <div>
+                                    <label for="vin">Voters Identification Number</label>
+                                    <input type="text" v-model="vin" name="" placeholder="">
+                                </div>
+                                <div>
+                                    <label for="passNum">International Passport Number</label>
+                                    <input type="text" v-model="passNum" name="" placeholder="">
+                                </div>
+                                
+                            </form>
+                            <div class="btn_group">
+                                <button id="previous" @click="previousForm" type="submit">Previous</button>
+                                <button id="next" @click="validateNational" type="submit">Preview</button>
+                            </div>
                         </div>
                         <div v-if="formCompleted" class="tab">
                             <div class="wrap_forms">
@@ -247,8 +285,8 @@
                                     <h5>{{gender}}</h5>
                                 </div>
                                 <div class="form_details">
-                                    <p>ethnic group</p>
-                                    <h5>{{ethnicGroup}}</h5>
+                                    <p>home address</p>
+                                    <h5>{{homeAddress}}</h5>
                                 </div>
                                 <div class="form_details">
                                     <p>state of origin</p>
@@ -269,6 +307,10 @@
                                 <div class="form_details">
                                     <p>LGA of residence</p>
                                     <h5>{{lgaOfResidence}}</h5>
+                                </div>                                
+                                <div class="form_details">
+                                    <p>ethnic group</p>
+                                    <h5>{{ethnicGroup}}</h5>
                                 </div>
                                 <div class="form_details">
                                     <p>religion</p>
@@ -285,8 +327,23 @@
                                 <div class="form_details">
                                     <p>email</p>
                                     <h5 class="email">{{email}}</h5>
+                                </div>                                
+                                <div class="form_details">
+                                    <p>bank verification number</p>
+                                    <h5>{{bvn}}</h5>
                                 </div>
-
+                                <div class="form_details">
+                                    <p>national identification number</p>
+                                    <h5>{{nin}}</h5>
+                                </div>
+                                <div class="form_details">
+                                    <p>voters identification number</p>
+                                    <h5>{{vin}}</h5>
+                                </div>
+                                <div class="form_details">
+                                    <p>International Passport  Number</p>
+                                    <h5 class="email">{{passNum}}</h5>
+                                </div>
                             </div>
                             <div class="btn_group form_btn">
                                 <button @click="cancelForm" id="cancel" type="submit"></button>
@@ -295,7 +352,7 @@
                         </div>
                     </div>
                 </div> 
-                <div class="processing" v-bind:class="{ active: isProcessing}">
+                <div class="processing" v-bind:class="{active: isProcessing}">
                     <div id="completed">
                         <div class="completedIcon"></div>
                         <h3 class="inform">Your form was submitted successfully.</h3>
