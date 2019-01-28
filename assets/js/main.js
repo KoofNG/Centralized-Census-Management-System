@@ -1,5 +1,8 @@
-let moreRecord = document.querySelector('#moreRecords');
-moreRecord.addEventListener('click', (event)=>{
-    event.preventDefault();
-    document.querySelector('.moreLinks').classList.toggle('active')
-})
+window.addEventListener('load', () => {
+    let moreRecord = document.querySelector('#moreRecords');
+    moreRecord.addEventListener('click', (event) => {
+        event.preventDefault();
+        document.querySelector('.moreLinks').classList.toggle('active')
+    });
+});
+

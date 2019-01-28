@@ -4,9 +4,7 @@
         //DB STUFF
         private $conn;
         private $table = 'tbl_registered_citizens';
-
         //USER Properties
-        //public $userId;
         public $fullName;
         public $dob;
         public $age;
@@ -22,6 +20,11 @@
         public $phoneNumber;
         public $email;
         public $profilePicture;
+        public $homeAddress;
+        public $BVN;
+        public $NIM;
+        public $VIN;
+        public $passportNumber;
 
         //Constructor with DB
         public function __construct($db){
@@ -88,7 +91,13 @@
                religion = :religion,
                occupation = :occupation, 
                phoneNumber = :phoneNumber,
-               email = :email';
+               email = :email,              
+               homeAddress = :homeAddress,
+               BVN = :BVN,
+               NIM = :NIM,
+               VIN = :VIN,
+               passportNumber = :passportNumber,
+               profilePicture = :profilePicture';
 
             //Prepare Statement
             $stmt = $this->conn->prepare($query);
@@ -108,7 +117,12 @@
             $this->occupation = htmlspecialchars(strip_tags($this->occupation));
             $this->phoneNumber = htmlspecialchars(strip_tags($this->phoneNumber));
             $this->email = htmlspecialchars(strip_tags($this->email));
-            //$this->profilePicture = htmlspecialchars(strip_tags($this->profilePicture));
+            $this->homeAddress = htmlspecialchars(strip_tags($this->homeAddress));
+            $this->BVN = htmlspecialchars(strip_tags($this->BVN));
+            $this->NIM = htmlspecialchars(strip_tags($this->NIM));
+            $this->VIN = htmlspecialchars(strip_tags($this->VIN));
+            $this->passportNumber = htmlspecialchars(strip_tags($this->passportNumber));
+            $this->profilePicture = htmlspecialchars(strip_tags($this->profilePicture));
 
             //Bind Data
             $stmt->bindParam(':fullName', $this->fullName);
@@ -125,12 +139,21 @@
             $stmt->bindParam(':occupation', $this->occupation);
             $stmt->bindParam(':phoneNumber', $this->phoneNumber);
             $stmt->bindParam(':email', $this->email);
-            //$stmt->bindParam(':profilePicture', $this->profilePicture);
+            $stmt->bindParam(':homeAddress',$this->homeAddress);
+            $stmt->bindParam(':BVN',$this->BVN);
+            $stmt->bindParam(':NIM',$this->NIM);
+            $stmt->bindParam(':VIN',$this->VIN);
+            $stmt->bindParam(':passportNumber',$this->passportNumber);
+            $stmt->bindParam(':profilePicture', $this->profilePicture);
 
             //Execute Query
 
             if($stmt->execute()){
-                return true;
+                $userID =  str_pad($this->conn->lastInsertid(),4, '0', STR_PAD_LEFT);
+                echo json_encode(
+                    array('userID' => $userID)
+                );         
+                return true; 
             } 
             printf("Error: %s.\n", $stmt->error);
             return false;            
