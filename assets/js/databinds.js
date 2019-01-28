@@ -1,11 +1,13 @@
 let mainApp = new Vue({
     el: '#app',
     data: {
+        userID: '',
         fullName: '',
         dob: '',
         age: 0,
         gender: '',
         ethnicGroup: '',
+        homeAddress: '',
         stateOfOrigin: '',
         lga: '',
         hometown: '',
@@ -15,16 +17,21 @@ let mainApp = new Vue({
         occupation: '',
         phoneNumber: '',
         email: '',
+        bvn: '',
+        nin: '',
+        vin: '',
+        passNum: '',
+        profilePicture: './assets/images/dp.png',
         ondoLGA: [
             "Akoko North-East", "Akoko North-West", "Akoko South-East",
             "Akoko South-West", "Akure North", "Akure South",
             "Ese Odo", "Idanre", "Ifedore", "Ilaje", "Ile Oluji/Okeigbo", "Irele",
             "Odigbo", "Okitipupa", "Ondo East", "Ondo West", "Ose", "Owo"],
         AvailableStates: [
-            "Abia","Adamawa","Akwa Ibom","Anambra","Bauchi","Bayelsa","Benue","Borno",
-            "Cross River","Delta","Ebonyi","Edo","Ekiti","Enugu","FCT","Gombe","Imo",
-            "Jigawa","Kaduna","Kano","Katsina","Kebbi","Kogi","Kwara","Lagos","Nasarawa",
-            "Niger","Ogun","Ondo","Osun","Oyo","Plateau","Rivers","Sokoto","Taraba","Yobe","Zamfara"
+            "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno",
+            "Cross River", "Delta", "Ebonyi", "Edo", "Ekiti", "Enugu", "FCT", "Gombe", "Imo",
+            "Jigawa", "Kaduna", "Kano", "Katsina", "Kebbi", "Kogi", "Kwara", "Lagos", "Nasarawa",
+            "Niger", "Ogun", "Ondo", "Osun", "Oyo", "Plateau", "Rivers", "Sokoto", "Taraba", "Yobe", "Zamfara"
         ],
         hiddenLayer: false,
         isInitStarted: true,
@@ -32,9 +39,10 @@ let mainApp = new Vue({
         formOne: true,
         formTwo: false,
         formThree: false,
+        formFour: false,
         formCompleted: false,
         precessing: false,
-        growthBar: 33.3,
+        growthBar: 25.0,
         isActive: false,
         isProcessing: false
     },
@@ -64,12 +72,12 @@ let mainApp = new Vue({
         },
 
         validatePerson: function () {
-            if ((this.fullName && this.dob && this.age && this.gender && this.ethnicGroup) == '') {
+            if ((this.fullName && this.dob && this.age && this.gender && this.homeAddress) == '') {
                 this.popAlert();
             } else {
-                this.growthBar = this.growthBar + 33.3;
+                this.growthBar = this.growthBar + 25.0;
                 setTimeout(() => {
-                    if (this.growthBar = 66.6) {
+                    if (this.growthBar = 50.0) {
                         this.formOne = !this.formOne;
                         this.formTwo = !this.formTwo;
                     }
@@ -81,9 +89,9 @@ let mainApp = new Vue({
             if ((this.stateOfOrigin && this.lga && this.hometown) == '') {
                 this.popAlert();
             } else {
-                this.growthBar = this.growthBar + 33.3;
+                this.growthBar = this.growthBar + 25.0;
                 setTimeout(() => {
-                    if (this.growthBar = 99.9) {
+                    if (this.growthBar = 75.0) {
                         this.formTwo = !this.formTwo;
                         this.formThree = !this.formThree;
                     }
@@ -95,22 +103,39 @@ let mainApp = new Vue({
             if ((this.religion && this.occupation) == '') {
                 this.popAlert();
             } else {
-                this.formThree = !this.formThree;
-                this.formCompleted = !this.formCompleted;
+                this.growthBar = this.growthBar + 25.0;
+                setTimeout(() => {
+                    if (this.growthBar = 100.0) {
+                        this.formThree = !this.formThree;
+                        this.formFour = !this.formFour;
+                    }
+                }, 700);
+
             }
         },
 
+        validateNational: function () {
+            this.formFour = !this.formFour;
+            setTimeout(() => {
+                this.formCompleted = !this.formCompleted;
+            }, 200)
+        },
+
         previousForm: function () {
-            if (this.formThree === true) {
-                //this.controlGrowth(this.formThree, this.formTwo, this.growthBar);
-                this.growthBar = this.growthBar - 33.3;
+            if (this.formFour === true) {
+                this.growthBar = this.growthBar - 25.0;
+                setTimeout(() => {
+                    this.formFour = !this.formFour;
+                    this.formThree = !this.formThree;
+                }, 700)
+            } else if (this.formThree === true) {
+                this.growthBar = this.growthBar - 25.0;
                 setTimeout(() => {
                     this.formThree = !this.formThree;
                     this.formTwo = !this.formTwo;
                 }, 700)
             } else {
-                //this.controlGrowth(this.formTwo,this.formOne, this.growthBar);
-                this.growthBar = this.growthBar - 33.3;
+                this.growthBar = this.growthBar - 25.0;
                 setTimeout(() => {
                     this.formTwo = !this.formTwo;
                     this.formOne = !this.formOne;
@@ -119,7 +144,7 @@ let mainApp = new Vue({
         },
 
         cancelForm: function () {
-            this.growthBar = 33.3;
+            this.growthBar = 25.0;
             this.formCompleted = !this.formCompleted;
             this.formOne = !this.formOne;
         },
@@ -142,12 +167,22 @@ let mainApp = new Vue({
                 religion: this.religion,
                 occupation: this.occupation,
                 phoneNumber: this.phoneNumber,
-                email: this.email
+                email: this.email,
+                homeAddress: this.homeAddress,
+                BVN: this.bvn,
+                NIM: this.nin,
+                VIN: this.vin,
+                passportNumber: this.passNum,
+                profilePicture: this.profilePicture
             }
 
             axios.post('http://localhost/Centralized-Census-Management-System/api/users/createUser.php', FormData)
-                .then(res => console.log(res))
+                .then(response => {
+                    this.user = response.data;
+                    this.userID = this.user.userID;
+                })
                 .catch(error => console.log(error));
+
 
             let lineLoad = document.querySelectorAll(".loader>div");
             for (let index = 0; index < lineLoad.length; index++) {
@@ -167,7 +202,14 @@ let mainApp = new Vue({
                 this.isActive = !this.isActive;
             }, 5200);
         },
+
+        setImage: function () {
+            var file = document.querySelector('input[type=file]').files[0];
+            if (/\.(jpe?g|png|gif)$/i.test(file.name)) {
+                this.profilePicture = window.URL.createObjectURL(file);
+            }
+        }
+
     },
 
 });
-
