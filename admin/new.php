@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Welcome - Birth Records </title>
     <link rel="stylesheet" href="../assets/css/main.css">
+    <!-- Scriptings -->
+    <script src="../assets/js/vue.js"></script>    
+    <script src="../assets/js/axios.min.js"></script>
 </head>
 <body>
     <div id="app">
@@ -26,10 +29,10 @@
                     <h3 class="section-header">Create new Registrant</h3>
                     <div class='create_new'>
                         <ul>
-                            <li><a href="" class='active'>Personal Information</a></li>
-                            <li><a href="">Location Information</a></li>
-                            <li><a href="">General Information</a></li>
-                            <li><a href="">National Information</a></li>
+                            <li><a id='personal' href="" class='active'>Personal Information</a></li>
+                            <li><a id='location' href="">Location Information</a></li>
+                            <li><a id='general' href="">General Information</a></li>
+                            <li><a id='national' href="">National Information</a></li>
                         </ul>
                         <div class="create_new_form">
                             <div id="personal" class='active'>
@@ -152,5 +155,6 @@
     </div>
 
     <script src="../assets/js/main.js"></script>
+    <script src='../admin/scripts/newRecords.js'></script>
 </body>
 </html>
