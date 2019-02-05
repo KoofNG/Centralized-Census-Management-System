@@ -1,926 +1,1032 @@
-*{
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-:root{
-	--testBg: linear-gradient(45deg, rgba(255, 0, 0, 0.8),rgba(255,165,0,1));
-	--bgColor: #eeeeee;
-	--pgColor: rgba(255,165,0,1) /* #195bdc  4b5659 */;
-	--hdColor: black;
-	--littleP: #4b5659/* b3b7b8 */;
-	--white: #ffffff;
-	--sidebar: rgb(0,64,0);
-	--lightsidebar: rgb(0,176,88);
+:root {
+  --testBg: linear-gradient(45deg, rgba(255, 0, 0, 0.8), rgba(255, 165, 0, 1));
+  --bgColor: #eeeeee;
+  --pgColor: rgba(255, 165, 0, 1) /* #195bdc  4b5659 */;
+  --hdColor: black;
+  --littleP: #4b5659 /* b3b7b8 */;
+  --white: #ffffff;
+  --sidebar: rgb(0, 64, 255); /* #1d78c1; */ /* rgb(0,64,0) */
+  --lightsidebar: rgb(0, 176, 88);
 }
-@font-face{
-	font-family: "Roboto-Regular";
-	src: url("../fonts/Roboto/Roboto-Regular.ttf");
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("../fonts/Roboto/Roboto-Regular.ttf");
 }
-@font-face{
-	font-family: "Roboto-bold";
-	src: url("../fonts/Roboto/Roboto-Bold.ttf")
+@font-face {
+  font-family: "Roboto-bold";
+  src: url("../fonts/Roboto/Roboto-Bold.ttf");
 }
-@font-face{
-	font-family: "Roboto-Light";
-	src: url("../fonts/Roboto/Roboto-Light.ttf")
+@font-face {
+  font-family: "Roboto-Light";
+  src: url("../fonts/Roboto/Roboto-Light.ttf");
 }
-@font-face{
-	font-family: "Font-Awesome";
-	src: url("../fonts/FontAwesome.otf");
-}
-
-html,body{
-	background-color: var(--bgColor);
-	height: 100vh;
-	width: 100%;
-	position: relative;
+@font-face {
+  font-family: "Font-Awesome";
+  src: url("../fonts/FontAwesome.otf");
 }
 
-div#app{
-	display: flex;
-	position: relative;
-	height: 100vh;
-	width: 100%;
+html,
+body {
+  background-color: var(--bgColor);
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+div#app {
+  display: flex;
+  position: relative;
+  height: 100vh;
+  width: 100%;
 }
 
 div.left,
-div.right{
-	width: 50%;
-	height: 100vh;
-	position: relative;
+div.right {
+  width: 50%;
+  height: 100vh;
+  position: relative;
 }
 
-div.left{
-	background: var(--testBg);;
+div.left {
+  background: var(--testBg);
 }
 
 /* Right Part */
-div.right{
-	background-color: #ffffff;
-	padding: 80px 60px;
+div.right {
+  background-color: #ffffff;
+  padding: 80px 60px;
 }
-h3,p{
-	text-align: left;
-	letter-spacing: 1px;
+h3,
+p {
+  text-align: left;
+  letter-spacing: 1px;
 }
-h3{
-	font-family: "Roboto-Regular";
-	font-size: 24px;
-	color: var(--pgColor);
-	font-weight: 500;
-	padding: 20px 0;
+h3 {
+  font-family: "Roboto-Regular";
+  font-size: 24px;
+  color: var(--pgColor);
+  font-weight: 500;
+  padding: 20px 0;
 }
-h3.section-header,p,div.loginInfo>label{
-	font-family: "Roboto-Light";
-	color: var(--littleP);
-	font-size: 16px;
-	font-weight: 300;
+h3.section-header,
+p,
+div.loginInfo > label {
+  font-family: "Roboto-Light";
+  color: var(--littleP);
+  font-size: 16px;
+  font-weight: 300;
 }
-form{
-	padding: 25px 0;
-	display: flex;
-	flex-direction: column;
+form {
+  padding: 25px 0;
+  display: flex;
+  flex-direction: column;
 }
-div.loginInfo{
-	margin: 5px 0px;
-	height: auto;
-	width: 100%;
-	display: block;
+div.loginInfo {
+  margin: 5px 0px;
+  height: auto;
+  width: 100%;
+  display: block;
 }
-div.loginInfo>label{
-	display: block;
-	position: relative;
-	padding: 2.5px 0;
+div.loginInfo > label {
+  display: block;
+  position: relative;
+  padding: 2.5px 0;
 }
-div.loginInfo>input{
-	display: block;
-	width: 100%;
-	height: 35px;
-	padding: 5px 5px;
-	outline: none;
-	border: none;
-	border-bottom: 1px solid var(--littleP);
-	transition: border 1000ms;
+div.loginInfo > input {
+  display: block;
+  width: 100%;
+  height: 35px;
+  padding: 5px 5px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid var(--littleP);
+  transition: border 1000ms;
 }
-div.loginInfo>input:focus{
-	border-bottom: 1px solid var(--pgColor);
+div.loginInfo > input:focus {
+  border-bottom: 1px solid var(--pgColor);
 }
-div.loginInfo>input[type=checkbox]{
-	width: auto;
-	height: auto;
-	margin-right: 10px;
+div.loginInfo > input[type="checkbox"] {
+  width: auto;
+  height: auto;
+  margin-right: 10px;
 }
-div.loginInfo.alignCenter{
-	text-align: center;
-	padding: 10px 0;
+div.loginInfo.alignCenter {
+  text-align: center;
+  padding: 10px 0;
 }
-div.loginInfo.xtrapad{
-	padding: 7.5px 0;
+div.loginInfo.xtrapad {
+  padding: 7.5px 0;
 }
-button#btnLogin{
-	height: 40px;
-	width: auto;
-	padding: 10px 30px;
-	border-radius: 20px;
-	cursor: pointer;
-	outline: none;
-	border: none;
-	background: var(--testBg);
-	color: #ffffff;
+button#btnLogin {
+  height: 40px;
+  width: auto;
+  padding: 10px 30px;
+  border-radius: 20px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background: var(--testBg);
+  color: #ffffff;
 }
 
 /* Main Pages */
-div.wrap{
-	width: 100%;
-	height: 100vh;
-	position: relative;
-	display: flex;
-	flex-direction: row;
+div.wrap {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: row;
 }
 
-div#navbar{
-	height: 50px;
-	width: 100%;
-	display: block;
-	position: absolute;
-	left: 0;
-	top: 0;
-	right: 0;
-	background-color: var(--white);
-	box-shadow: 0px 1px 5px -1px #000000;
-	padding: 10px 30px 10px 230px;
-	z-index: 1;
+div#navbar {
+  height: 50px;
+  width: 100%;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  background-color: var(--white);
+  box-shadow: 0px 1px 5px -1px #000000;
+  padding: 10px 30px 10px 230px;
+  z-index: 1;
 }
-div.c_menu{
-	width: 30px;
-	height: 100%;
-	display: block;
-	position: relative;
-	float: left;
+div.c_menu {
+  width: 30px;
+  height: 100%;
+  display: block;
+  position: relative;
+  float: left;
 }
 span#collapse,
-span#search{
-	position: relative;
-	display: block;
-	float: left;
-	width: 30px;
-	height: 30px;
-	max-height: 100%;
-	margin: 0;
+span#search {
+  position: relative;
+  display: block;
+  float: left;
+  width: 30px;
+  height: 30px;
+  max-height: 100%;
+  margin: 0;
 }
 span#collapse::after,
-span#search::after{	
-    font-family: "Font-Awesome";
-    text-align: center;
-    font-size: 28px;
-	color: var(--sidebar);
-	padding: 1px 3px;
+span#search::after {
+  font-family: "Font-Awesome";
+  text-align: center;
+  font-size: 28px;
+  color: var(--sidebar);
+  padding: 1px 3px;
 }
-span#collapse::after{
-	content: '\f0c9';
+span#collapse::after {
+  content: "\f0c9";
 }
-div.search{
-	height: 100%;
-	width: auto;
-	position: relative;
-	padding: 0 15px;
-	display: block;
-	float: left;
+div.search {
+  height: 100%;
+  width: auto;
+  position: relative;
+  padding: 0 15px;
+  display: block;
+  float: left;
 }
-div.search>input[type=text]{
-	width: 250px;
-	height: 100%;
-	position: relative;
-	border-radius: 15px;
-	outline: none;
-	border: 1px solid #cccccc;
-	padding: 2.5px 30px 2.5px 10px;
-	text-transform: capitalize;
+div.search > input[type="text"] {
+  width: 250px;
+  height: 100%;
+  position: relative;
+  border-radius: 15px;
+  outline: none;
+  border: 1px solid #cccccc;
+  padding: 2.5px 30px 2.5px 10px;
+  text-transform: capitalize;
 }
-span#search{
-	position: absolute;
-	right: 16px;
-	top: 0px;
-	cursor: pointer;
-	display: block;
+span#search {
+  position: absolute;
+  right: 16px;
+  top: 0px;
+  cursor: pointer;
+  display: block;
 }
-span#search:hover{
-	width: 45px;
-	height: 100%;
-	text-align: center;
-	background-color: #cccccc;
-	border-radius: 15px;
-	transition: width 300ms;
+span#search:hover {
+  width: 45px;
+  height: 100%;
+  text-align: center;
+  background-color: #cccccc;
+  border-radius: 15px;
+  transition: width 300ms;
 }
-span#search::after{
-	height: 100%;
-	width: 100%;
-	position: absolute;
-	content: '\f002';
-	font-size: 20px;
-	padding: 4px 3px;
-	box-sizing: border-box;
+span#search::after {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  content: "\f002";
+  font-size: 20px;
+  padding: 4px 3px;
+  box-sizing: border-box;
 }
-span#search:hover::after{
-	position: absolute;
-	left: 0;
-	right: 0;
+span#search:hover::after {
+  position: absolute;
+  left: 0;
+  right: 0;
 }
-
 
 /* Styling the Left Sidebar */
 
-div#sidebar{
-	position: relative;
-	display: block;
-	width: 200px;
-	height: 100vh;
-	max-height: 100%;
-	background: var(--sidebar);
-	opacity: 0.8;
-	top: 0;
-	left: 0;
-	padding: 0;
-	z-index: 2;
+div#sidebar {
+  position: relative;
+  display: block;
+  width: 200px;
+  height: 100vh;
+  max-height: 100%;
+  background: var(--sidebar);
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  padding: 0;
+  z-index: 2;
 }
-div.header{
-	width: 100%;
-	height: 50px;
-	padding: 10px 20px;
-	display: block;
-	position: relative;
+div.header {
+  width: 100%;
+  height: 50px;
+  padding: 10px 20px;
+  display: block;
+  position: relative;
 }
-div.header>a{
-	color: var(--white);
-	font-size: 24px;
-	font-family: 'Roboto-Regular';
-	text-decoration: none;
-	display: block;
-	cursor: pointer;
-}
-
-div.navigation{
-	padding: 20px 0;
-	margin: 0;
-	display: block;
-}
-div.navigation>ul{
-	list-style: none;
-	display: block;
-}
-div.navigation>ul>li{
-	width: 100%;
-	height: auto;
-	list-style: none;
-	padding: 10px 0;
-	background: none;
-	transition: background 200ms;
-}
-div.navigation>ul>li+li{
-	margin: 2.5px 0;
-}
-div.navigation>ul>li:hover{
-	background: var(--lightsidebar);
-	transition: background 300ms;
-	opacity: 1;
-}
-div.navigation>ul>li:hover>a{
-	border-left: 5px solid #ffffff;
-	border-right: 5px solid #ffffff;
-}
-div.navigation>ul>li>a{
-	height: auto;
-	width: 100%;
-	display: block;
-	position: relative;
-	cursor: pointer;
-	color: var(--white);	
-	text-decoration: none;
-	padding: 0 10px;
-	font-family: 'Roboto-Light';
-	font-size: 16px;
-	font-weight: 400;
-}
-div.navigation>ul>li>a>span{
-	top: -5px !important;
-	margin-right: 7.5px;
-	height: 30px;
-	width: 30px;
-	display: block;
-	position: relative;
-	float: left;
-}
-div.navigation>ul>li>a>span::after{
-	height: 100%;
-	width: 100%;
-	position: absolute;
-	content: '';
-	font-size: 22px;
-	font-family: 'Font-Awesome';
-	padding: 2px 4px 3px 4px;
-	text-align: center;
-	box-sizing: border-box;
-	color: var(--white)
-}
-div.navigation>ul>li>a>span#overview::after{
-	content: '\f0e4';
-}
-div.navigation>ul>li>a>span#reports::after{
-	content: '\f02c';
-}
-div.navigation>ul>li>a>span#greports::after{
-	content: '\f085';
-}
-div.navigation>ul>li>a>span#records::after{
-	content: '\f08d';
-}
-div.navigation>ul>li>a>span#accounts::after{
-	content: '\f055';
-}
-div.navigation>ul>li>ul.moreLinks{
-	display: none;
-	margin-left: 30px;
-}
-div.navigation>ul>li>ul.moreLinks.active{
-	display: block;
-}
-div.navigation>ul>li>ul{
-	list-style: none;
-	padding: 5px 20px;
-}
-div.navigation>ul>li>ul>li{
-	width: 100%;
-	height: auto;
-	list-style: none;
-	padding: 5px 0;
-	display: block;
-	position: relative;
-}
-div.navigation>ul>li>ul>li:hover>a{
-	color: var(--sidebar);
-}
-div.navigation>ul>li>ul>li>a{
-	height: auto;
-	width: 100%;
-	display: block;
-	position: relative;
-	cursor: pointer;
-	color: var(--white);	
-	text-decoration: none;
-	padding: 0 5px;
-	font-family: 'Roboto-Light';
-	font-size: 13px;
-	font-weight: 400;
+div.header > a {
+  color: var(--white);
+  font-size: 24px;
+  font-family: "Roboto-Regular";
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
 }
 
-div#rightbar{
-	position: absolute;
-	display: inline-block;
-	width: calc(100% - 200px);
-	overflow-y: auto;
-	height: 100vh;
-	max-height: 100%;
-	left: 200px;
-	background: #ffffff;
-	padding: 80px 30px 30px 30px;
+div.navigation {
+  padding: 20px 0;
+  margin: 0;
+  display: block;
+}
+div.navigation > ul {
+  list-style: none;
+  display: block;
+}
+div.navigation > ul > li {
+  width: 100%;
+  height: auto;
+  list-style: none;
+  padding: 10px 0;
+  background: none;
+  transition: background 200ms;
+}
+div.navigation > ul > li + li {
+  margin: 2.5px 0;
+}
+div.navigation > ul > li:hover {
+  background: var(--lightsidebar);
+  transition: background 300ms;
+  opacity: 1;
+}
+div.navigation > ul > li:hover > a {
+  border-left: 5px solid #ffffff;
+  border-right: 5px solid #ffffff;
+}
+div.navigation > ul > li > a {
+  height: auto;
+  width: 100%;
+  display: block;
+  position: relative;
+  cursor: pointer;
+  color: var(--white);
+  text-decoration: none;
+  padding: 0 10px;
+  font-family: "Roboto-Light";
+  font-size: 16px;
+  font-weight: 400;
+}
+div.navigation > ul > li > a > span {
+  top: -5px !important;
+  margin-right: 7.5px;
+  height: 30px;
+  width: 30px;
+  display: block;
+  position: relative;
+  float: left;
+}
+div.navigation > ul > li > a > span::after {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  content: "";
+  font-size: 22px;
+  font-family: "Font-Awesome";
+  padding: 2px 4px 3px 4px;
+  text-align: center;
+  box-sizing: border-box;
+  color: var(--white);
+}
+div.navigation > ul > li > a > span#overview::after {
+  content: "\f0e4";
+}
+div.navigation > ul > li > a > span#reports::after {
+  content: "\f02c";
+}
+div.navigation > ul > li > a > span#greports::after {
+  content: "\f085";
+}
+div.navigation > ul > li > a > span#records::after {
+  content: "\f08d";
+}
+div.navigation > ul > li > a > span#accounts::after {
+  content: "\f055";
+}
+div.navigation > ul > li > ul.moreLinks {
+  display: none;
+  margin-left: 30px;
+}
+div.navigation > ul > li > ul.moreLinks.active {
+  display: block;
+}
+div.navigation > ul > li > ul {
+  list-style: none;
+  padding: 5px 20px;
+}
+div.navigation > ul > li > ul > li {
+  width: 100%;
+  height: auto;
+  list-style: none;
+  padding: 5px 0;
+  display: block;
+  position: relative;
+}
+div.navigation > ul > li > ul > li:hover > a {
+  color: var(--sidebar);
+}
+div.navigation > ul > li > ul > li > a {
+  height: auto;
+  width: 100%;
+  display: block;
+  position: relative;
+  cursor: pointer;
+  color: var(--white);
+  text-decoration: none;
+  padding: 0 5px;
+  font-family: "Roboto-Light";
+  font-size: 13px;
+  font-weight: 400;
+}
+
+div#rightbar {
+  position: absolute;
+  display: inline-block;
+  width: calc(100% - 200px);
+  overflow-y: auto;
+  height: 100vh;
+  max-height: 100%;
+  left: 200px;
+  background: #ffffff;
+  padding: 80px 30px 30px 30px;
 }
 
 /* Content */
-div#mainEnv{
-	padding: 0px 10px;
+div#mainEnv {
+  padding: 0px 10px;
 }
 
 /* Search Forms */
-div.searchForms{
-	display: inline-block;
-	position: relative;
-	height: auto;
-	width: 100%;
-	padding: 0px 0px 15px 0px;
-	border-bottom: 1px solid var(--sidebar); 
-}
-div.searchForms>p.heading,
-h3.section-header{
-	font-weight: bold;
-	font-size: 22px;
-	padding-bottom: 13px;
-	padding-top: 0px;
-}
-div.searchForms>div.form{
-	display: flex;
-	flex-direction: row;
-	flex-grow: 4;
-}
-div.searchForms>div.form>div{
-	width: 25%;
-	height: 35px !important;
-	max-height: 35px !important;
-}
-div.searchForms>div.form>div:nth-child(even){
-	margin: 0px 10px;
-}
-div.searchForms>div.form>div>label{
-	font-family: 'Roboto-Light';
-    color: var(--littleP);
-	padding: 7.5px 0px;
-	position: relative;
-	display: block;
-}
-div.searchForms>div.form>div>input{
-	width: 100%;
-	height: 35px;
-	padding: 5px 10px 5px 40px;
-	border: 1px solid #cccccc;
-	border-radius: 4px;
-	transition: all 3ms;
-	background: transparent;
-}
-div.searchForms>div.form>div>input:focus{
-	border: 1px solid var(--sidebar);
-	outline: none;
+div.searchForms {
+  display: block;
+  position: relative;
+  height: auto;
+  width: 100%;
+  padding: 0px;
 }
 
-div.searchForms>div.form>div>input[name=cardno]{
-	text-transform: uppercase;
+div.searchForms > p.heading {
+  font-weight: bold;
+  font-size: 22px;
+  padding-bottom: 7px;
+  padding-top: 0px;
+  border-bottom: none;
 }
 
+p.heading,
+h3.section-header {
+  font-weight: bold;
+  font-size: 22px;
+  padding-bottom: 12.5px;
+  padding-top: 0px;
+  border-bottom: 1px solid var(--sidebar);
+}
+div.searchForms > div.form {
+  display: inline-block;
+  position: relative;
+  padding: 10px 0;
+  margin: 0;
+  height: auto;
+  width: 100%;
+}
+div.searchForms > div.form > div {
+  width: 25%;
+  height: 40px !important;
+  max-height: 40px !important;
+  display: block;
+  position: relative;
+  float: left;
+}
+div.searchForms > div.form > div:nth-child(even) {
+  margin: 0px 10px;
+}
+div.searchForms > div.form > div > input {
+  width: 100%;
+  height: 40px;
+  padding: 7.5px 10px 5px 40px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  transition: all 3ms;
+  background: transparent;
+}
+div.searchForms > div.form > div > input:focus {
+  border: 1px solid var(--sidebar);
+  outline: none;
+}
+
+div.searchForms > div.form > div > input[name="cardno"] {
+  text-transform: uppercase;
+}
+#cardno.error {
+  border: 1px solid #d61b1bcb;
+}
 div.userName::after,
-div.userCardNo::after{
-	height: 35px;
-	width: 35px;
-	padding: 4.5px 3.5px;
-	position: relative;
-	content: '';
-	text-align: center;
-	color: var(--sidebar);
-	font-family: "Font-Awesome";
-	font-size: 24px;
-	display: flex;
-	justify-content: center;
-	align-content: center;
-	top: -35px;
-	left: 3px;
-	box-sizing: border-box;
+div.userCardNo::after {
+  height: 40px;
+  width: 35px;
+  padding: 3px 3.5px;
+  position: relative;
+  content: "";
+  text-align: center;
+  color: var(--sidebar);
+  font-family: "Font-Awesome";
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  top: -35px;
+  left: 3px;
+  box-sizing: border-box;
 }
-div.userName::after{ 
-	content: "\f007"; 
+div.userName::after {
+  content: "\f007";
 }
-div.userCardNo::after{
-	content: "\f2bb";
+div.userCardNo::after {
+  content: "\f2bb";
 }
 
 /* Styling Search Button */
-div#buttons{
-	width: auto;
+div#buttons {
+  width: auto;
 }
-button#searchUser{
-	height: 35px;
-	width: auto;
-	background-color: var(--sidebar);
-	color: #ffffff;
-	text-align: center;
-	font-size: 15px;
-	font-weight: 500;
-	font-family: "Roboto-Regular";
-	padding: 8.5px 20px;
-	border-radius: 4px;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	display: block;
-	transition: all 0.5s;
-}
-
-button#searchUser:hover,
-button#searchUser:focus{
-	background-color: #ffffff;
-	border: 1px solid var(--sidebar);
-	color: var(--sidebar);
-	padding: 6.5px 22px;
-	font-weight: bold;
+button#searchUser {
+  height: 40px;
+  width: auto;
+  padding: 8.5px 25px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  background-color: var(--sidebar);
+  color: #ffffff;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+  font-family: "Roboto-Regular";
+  cursor: pointer;
+  display: block;
+  transition: all 0.5s;
 }
 
+button#searchUser::after {
+  width: 5%;
+  height: 100%;
+  background-color: rgb(7, 71, 166);
+  position: absolute;
+  content: "";
+  font-family: "Font-Awesome";
+  text-align: center;
+  font-size: 22px;
+  padding: 8px 0;
+  left: 0;
+  top: 0;
+  border-radius: 4px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  transition: all 0.5s;
+}
+
+button#searchUser:focus::after,
+button#searchUser:hover::after {
+  content: "\f002";
+  width: 100%;
+}
 
 /* For the records table */
-.table-row{
-	width: 100%;
-	height: auto;
-	padding: 2.5px 0px;
-	display: flex;
-	flex-direction: row;
-	align-content: center;
-	justify-content: space-between;
-	position: relative;
-	background-color: #e3e3e3;
-	transition: background-color 300ms;
+.table-row {
+  width: 100%;
+  height: auto;
+  padding: 2.5px 0px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-between;
+  position: relative;
+  background-color: #e3e3e3;
+  transition: background-color 300ms;
 }
-.table-row:nth-child(odd){
-	margin: 2px 0;
+.table-row:nth-child(odd) {
+  margin: 2px 0;
 }
-.table-row:hover{
-	background-color: #ffffff;
-	border: 1px solid #cccccc;
+.table-row:hover {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
 }
-div.userImage{
-	width: 35px;
-	height: 35px;
-	position: static;
-	display: block;
-	border-radius: 50%;
-	background-color: #e3e3e3;
-	border: 1px solid #ffffff;
-	margin: 0 auto;
+div.userImage {
+  width: 35px;
+  height: 35px;
+  position: static;
+  display: block;
+  border-radius: 50%;
+  background-color: #e3e3e3;
+  border: 1px solid #ffffff;
+  margin: 0 auto;
 }
-div.userImage>img{
-	width: 100%;
-	height: 100%;
-	display: block; 	
-	border-radius: 50%;
+div.userImage > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 50%;
 }
-tbody>tr>td>p{
-    padding: 8.5px 0;
-    height: 100%;
-    display: block;
-    position: relative;
-    box-sizing: border-box;
-    text-transform: capitalize;
-	font-family: 'Roboto-Light';
-	font-size: 14px;
-	text-transform: capitalize;
-	color: #121212;
+tbody > tr > td > p {
+  padding: 8.5px 0;
+  height: 100%;
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  font-family: "Roboto-Light";
+  font-size: 14px;
+  text-transform: capitalize;
+  color: #121212;
 }
-tbody>tr>td>p.cNumber{
-	font-weight: 700;
-	color: #000000;
-
+tbody > tr > td > p.cNumber {
+  font-weight: 700;
+  color: #000000;
 }
-div.action{
-	width: 35px;
-	height: 35px;
-	position: relative;
-	display: block;
-	padding: 2.5px;
+div.action {
+  width: 35px;
+  height: 35px;
+  position: relative;
+  display: block;
+  padding: 2.5px;
 }
-div.moreBtn{
-	width: 30px;
-	height: 30px;
-	border-radius: 15px;
-	background: #cccccc;
-	display: block;
-	position: relative;
-	cursor: pointer;
-	margin: 0 auto;
+div.moreBtn {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background: #cccccc;
+  display: block;
+  position: relative;
+  cursor: pointer;
+  margin: 0 auto;
 }
-div.moreBtn::after{
-	content: '\f142';
-	font-family: 'Font-Awesome';
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	display: block;
-	padding: 6.5px 0;
-	font-size: 20px;
-	text-align: center;
-	color: #ffffff;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
+div.moreBtn::after {
+  content: "\f142";
+  font-family: "Font-Awesome";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  padding: 6.5px 0;
+  font-size: 20px;
+  text-align: center;
+  color: #ffffff;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
 /* Designing the Records Table */
-table{
-	width: 100%;
-	height: auto;
-	position: relative;
-	display: inline-block;
-	border-spacing: 0px;
+table {
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: inline-block;
+  border-spacing: 0px;
 }
-thead,tbody,tr{
-	width: 100%;
-	height: auto;
-	display: block;
-	position: relative;
+thead,
+tbody,
+tr {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
 }
-thead{
-	height: 40px;
-	display: block;
-	position: relative;
-	background-color: #cccccc;
-	margin-bottom: 5px;
+thead {
+  height: 40px;
+  display: block;
+  position: relative;
+  background-color: #cccccc;
+  margin-bottom: 5px;
 }
-thead tr>th>p{
-	font-weight: 600;
-	font-family: 'Roboto-Regular';
-	font-size: 16px;
+thead tr > th > p {
+  font-weight: 600;
+  font-family: "Roboto-Regular";
+  font-size: 16px;
 }
-thead>tr>th{
-	padding: 10px 5px;
+thead > tr > th {
+  padding: 10px 5px;
 }
-tbody>tr>td{
-	padding: 0px 5px;
+tbody > tr > td {
+  padding: 0px 5px;
 }
-th,td{	
-	position: relative;
+th,
+td {
+  position: relative;
 }
-tr{
-	height: 100%;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-}
-
-.image,.actions{
-	width: 6%;
-	text-align: center;
-	position: relative;
-}
-.name{
-	width: 30%;
-}
-.card,.combo,.religion,.soo{
-	width: calc(56% / 4);
+tr {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-
-
-
-div.mainDocs{
-	padding: 20px 0;
-	margin: 0;
-	display: inline-block;
-	position: relative;
-    width: 100%;
-    height: auto;
+.image,
+.actions {
+  width: 6%;
+  text-align: center;
+  position: relative;
 }
-p#info{
-	font-weight: bold;
-    font-size: 22px;
-    padding-bottom: 13px;
-	padding-top: 0px;
-	font-family: "Roboto-Light";
-    color: var(--littleP);
+.name {
+  width: 30%;
+}
+.card,
+.combo,
+.religion,
+.soo {
+  width: calc(56% / 4);
 }
 
-div.tabsNavigation{
-	height: 40px;
-	width: 100%;
-	display: block;
-	position: relative;
+div.mainDocs {
+  padding: 20px 0;
+  margin: 0;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: auto;
 }
-div.tabsNavigation>ul{
-	height: 100%;
-	width: 100%;
-	display: block;
-	padding: 0;
-	margin: 0;
+p#info {
+  font-weight: bold;
+  font-size: 22px;
+  padding-bottom: 13px;
+  padding-top: 0px;
+  font-family: "Roboto-Light";
+  color: var(--littleP);
 }
-div.tabsNavigation>ul>li{
-	height: 100%;
-	list-style: none;
-	display: block;
-	float: left;
-	box-sizing: border-box;
+
+div.tabsNavigation {
+  height: 40px;
+  width: 100%;
+  display: block;
+  position: relative;
 }
-div.tabsNavigation>ul>li:nth-child(even){
-	margin: 0 10px;
+div.tabsNavigation > ul {
+  height: 100%;
+  width: 100%;
+  display: block;
+  padding: 0;
+  margin: 0;
 }
-div.tabsNavigation>ul>li>a{
-	padding: 10px 15px;
-	position: relative;
-	display: block;
-	text-decoration: none;
-	text-transform: capitalize;
-	font-family: "Roboto-Regular";
-    color: var(--littleP);
-	font-size: 14px;
-	font-weight: 400;
-	cursor: pointer;
-	background-color: var(--sidebar);
-	color: #ffffff;
-	border-radius: 20px;
+div.tabsNavigation > ul > li {
+  height: 100%;
+  list-style: none;
+  display: block;
+  float: left;
+  box-sizing: border-box;
+}
+div.tabsNavigation > ul > li:nth-child(even) {
+  margin: 0 10px;
+}
+div.tabsNavigation > ul > li > a {
+  padding: 10px 15px;
+  position: relative;
+  display: block;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-family: "Roboto-Regular";
+  color: var(--littleP);
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  background-color: var(--sidebar);
+  color: #ffffff;
+  border-radius: 20px;
 }
 
 div#personal,
 div#general,
 div#national,
-div#location{
-	padding: 15px 0;
-	width: 100%;
-	height: auto;
-	position: relative;
-	display: none; 
+div#location {
+  padding: 7.5px 0;
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: none;
 }
-div.create_new_form>div.active,
-div.updateForm>div.active{
-	display: block !important;
-}
-
-div.updateForm>div>div{
-	width: 100%;
-	height: auto;
-	position: relative;
-	display: block;
-	padding: 3.5px 0;
-}
-div.updateForm>div>div>label{
-	display: block;
-	position: relative;
-	padding: 2.25px 0;
-	margin: 0;
-	text-transform: capitalize;
-	color: var(--littleP);
-	font-family: 'Roboto-Regular';
-	font-size: 14px;
-}
-div.updateForm>div>div>input,
-div.updateForm>div>div>select{
-    height: 35px;
-    width: 50%;
-    display: block;
-    position: relative;
-    outline: none;
-    border: 1px solid #cccccc;
-    background-color: transparent;
-    padding: 6.5px 10px;
-    font-size: 14px;
-    font-family: "Roboto-Light";
-	text-transform: capitalize;
-	border-radius: 4px;
+div.create_new_form > div.active,
+div.updateForm > div.active {
+  display: block !important;
 }
 
-div.updateForm>div>div>input[type=date]{
-	text-transform: uppercase;
+div.updateForm > div > div {
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: block;
+  padding: 3.5px 0;
 }
-div.updateForm>div>div>input[type=email]{
-	text-transform: lowercase;
+div.updateForm > div > div > label {
+  display: block;
+  position: relative;
+  padding: 2.25px 0;
+  margin: 0;
+  text-transform: capitalize;
+  color: var(--littleP);
+  font-family: "Roboto-Regular";
+  font-size: 14px;
+}
+div.updateForm > div > div > input,
+div.updateForm > div > div > select {
+  height: 40px;
+  width: 50%;
+  display: block;
+  position: relative;
+  outline: none;
+  border: 1px solid #cccccc;
+  background-color: transparent;
+  padding: 6.5px 10px;
+  font-size: 14px;
+  font-family: "Roboto-Light";
+  text-transform: capitalize;
+  border-radius: 4px;
+}
+
+input:focus,
+select:focus{
+	border-left: 2px solid var(--sidebar) !important;
+}
+
+div.updateForm > div > div > input[type="date"] {
+  text-transform: uppercase;
+}
+div.updateForm > div > div > input[type="email"] {
+  text-transform: lowercase;
 }
 ::placeholder,
 ::-moz-placeholder,
-::-webkit-input-placeholder{
-	color: #eeeeee;
+::-webkit-input-placeholder {
+  color: #eeeeee;
 }
 
-div#update{
-	height: 40px;
-	width: auto;
-	position: relative;
-	display: block;
+div#update {
+  height: 40px;
+  width: auto;
+  position: relative;
+  display: block;
 }
-div#update>button{
-	height: 100%;
-	width: auto;
-	padding: 10px 15px;
-	position: relative;
-	display: block;
-	cursor: pointer;
-	outline: none;
-	border: none;
-	background-color: var(--sidebar);
-	border-radius: 5px;
-	color: #ffffff;
+div#update > button {
+  height: 100%;
+  width: auto;
+  padding: 10px 15px;
+  position: relative;
+  display: block;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: var(--sidebar);
+  border-radius: 5px;
+  color: #ffffff;
 }
 
 /* Styling the admin add new registrant form */
-div.create_new{
-	padding: 10px 0px;
-	display: block;
-	position: relative;
-	width: 100%;
-	height: auto;
+div.create_new {
+  padding: 10px 0px;
+  display: block;
+  position: relative;
+  width: 100%;
+  height: auto;
 }
-div.create_new>ul{
-	width: 100%;
-	height: 40px;
-	display: block;
-	position: relative;
-	list-style: none;
+div.create_new > ul {
+  width: 100%;
+  height: 40px;
+  display: block;
+  position: relative;
+  list-style: none;
 }
-div.create_new>ul>li{
-	list-style: none;
-	display: block;
-	float: left;
-	height: 100%;
-	width: auto;
+div.create_new > ul > li {
+  list-style: none;
+  display: block;
+  float: left;
+  height: 100%;
+  width: auto;
 }
-div.create_new>ul>li>a{
-	display: block;
-	position: relative;
-	height: 100%;
-	width: auto;
-	padding: 12px 10px;
-	text-decoration: none;
-	text-transform: capitalize;
-	font-size: 14px;
-	font-family: 'Roboto-Regular';
-	font-weight: 400;
-	background-color: var(--sidebar);
-	color: #ffffff;
-	opacity: 0.8;
-	transition: all 300ms;
-	cursor: pointer;
+div.create_new > ul > li > a {
+  display: block;
+  position: relative;
+  height: 100%;
+  width: auto;
+  padding: 12px 10px;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 14px;
+  font-family: "Roboto-Regular";
+  font-weight: 400;
+  background-color: var(--sidebar);
+  color: #ffffff;
+  opacity: 0.8;
+  transition: all 300ms;
+  cursor: pointer;
 }
-div.create_new>ul>li:nth-child(odd){
-	margin: 0px 2.5px;
+div.create_new > ul > li:nth-child(odd) {
+  margin: 0px 2.5px;
 }
-div.create_new>ul>li>a:hover{
-	color: #ffffff;
-	background-color: #999999;
-	opacity: 1;
+div.create_new > ul > li > a:hover {
+  color: #ffffff;
+  background-color: #999999;
+  opacity: 1;
 }
-div.create_new>ul>li>a.active{
-	border-bottom: 2px solid var(--sidebar);
-	background-color: #999999;
-	color: #ffffff;
-	opacity: 1;
+div.create_new > ul > li > a.active {
+  border-bottom: 2px solid var(--sidebar);
+  background-color: #999999;
+  color: #ffffff;
+  opacity: 1;
 }
-div.create_new_form{
-	width: 500px;
+div.create_new_form {
+  width: 500px;
 }
-div.create_new_form>div>div{
-	display: block;
-	position: relative;
-	height: auto;
-	width: 100%;
+div.create_new_form > div > div {
+  display: block;
+  position: relative;
+  height: auto;
+  width: 100%;
+  padding: 4px 0;
 }
-div.create_new_form>div>div:nth-child(even){
-	margin: 2.5px 0;
+div.create_new_form > div > div:nth-child(even) {
+  margin: 2.5px 0;
 }
-div.create_new_form>div>div>label{
-	display: block;
-	position: relative;
-	width: 100%;
-	height: auto;
-	padding: 2.5px 0 4px 0;
-	color: #121212;
-	font-family: 'Roboto-Regular';
-	font-size: 14px;
-	font-weight: 500;
-	text-transform: capitalize;
+div.create_new_form > div > div > label {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 2.5px 0 4px 0;
+  color: #121212;
+  font-family: "Roboto-Regular";
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: capitalize;
 }
-div.create_new_form>div>div>input,
-div.create_new_form>div>div>select{
-	width: 100%;
-	height: 35px;
-	display: block;
-	position: relative;
-	padding: 5px 7.5px;
-	font-family: 'Roboto-Regular';
-	font-size: 14px;
-	font-weight: normal;
-	text-transform: capitalize;
-	border: 1px solid #cccccc;
-	outline: none;
-	transition: border 300ms;
+div.create_new_form > div > div > input,
+div.create_new_form > div > div > select {
+  width: 100%;
+  height: 40px;
+  display: block;
+  position: relative;
+  padding: 5px 7.5px;
+  font-family: "Roboto-Regular";
+  font-size: 14px;
+  font-weight: normal;
+  text-transform: capitalize;
+  border: 1px solid #cccccc;
+  outline: none;
+  transition: border 300ms;
 }
-input[type=date]{
-	text-transform: uppercase !important;
+input[type="date"] {
+  text-transform: uppercase !important;
+}
+input[type=email] {
+	text-transform: lowercase !important;
 }
 div.create_new_form select:focus,
-div.create_new_form input:focus{
-	border: 1px solid var(--sidebar);
-	box-shadow: 0px 0px 10px 2px rgba(0,64,0,0.5);
+div.create_new_form input:focus {
+  border: 1px solid var(--sidebar);
+  box-shadow: 0px 0px 10px 2px rgba(0, 64, 0, 0.5);
 }
 
-div.actionBtn{
-	width: auto;
-	height: 40px;
-	position: relative;
-	display: block;
+div.actionBtn {
+  width: auto;
+  height: 40px;
+  position: relative;
+  display: block;
 }
-div.actionBtn>button{
-	height: 100%;
-	width: 150px;
-	padding: 10px 15px;
-	margin: 0;
-	box-sizing: border-box;
-	position: relative;
-	border: none;
-	outline: none;
-	background-color: var(--sidebar);
-	color: #ffffff;
-	font-family: 'Roboto-Regular';
-	font-size: 14px;
-	font-weight: 400;
-	opacity: 0.8;
-	cursor: pointer;
+div.actionBtn > button {
+  height: 100%;
+  width: 150px;
+  padding: 10px 15px;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+  border: none;
+  outline: none;
+  background-color: var(--sidebar);
+  color: #ffffff;
+  font-family: "Roboto-Regular";
+  font-size: 14px;
+  font-weight: 400;
+  opacity: 0.8;
+  cursor: pointer;
 }
-div.actionBtn>button::after{
-	height: 0px;
-	width: 0px;
-	position: absolute;
-	display: block;
-	box-sizing: border-box;
-	content: '';	
-	background-color: var(--lightsidebar);
-	opacity: 0.5;
-	left: 0px;
-	bottom: 0;
-	transition: all 300ms;
+div.actionBtn > button::after {
+  height: 0px;
+  width: 0px;
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  content: "";
+  background-color: var(--lightsidebar);
+  opacity: 0.5;
+  left: 0px;
+  bottom: 0;
+  transition: all 300ms;
 }
-div.actionBtn>button:hover::after{
-	width: 100%;
-	height: 100%;
+div.actionBtn > button:hover::after {
+  width: 100%;
+  height: 100%;
 }
 
+/* Center the loader */
+div#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1000;
+  width: 65px;
+  height: 65px;
+  margin: -37.5px 0 0 -37.5px;
+  border: 5px solid rgb(7, 71, 166, 0.2);
+  border-radius: 50%;
+  border-top: 5px solid var(--sidebar);
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  display: none;
+}
+div#loader.show {
+  display: block;
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
+/* Alert Box */
+div#alertBox {
+  display: block;
+  position: absolute;
+  right: 30px;
+  top: -30px;
+  content: "";
+  padding: 20px;
+  margin: 0;
+  background-color: #d61b1bcb;
+  transition: top 0.3s;
+  -moz-transition: top 0.3s;
+  -webkit-transition: top 0.5s;
+}
+div#alertBox.active {
+  top: 50px;
+}
+p#error {
+  font-family: "Roboto-Light";
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+}
 
+.slide-fade-enter-active {
+  transition: all 0.3s ease;
+}
+.slide-fade-enter{
+  transform: translateX(10px);
+  opacity: 0;
+}
