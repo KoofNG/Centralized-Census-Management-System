@@ -45,9 +45,9 @@
                         <p v-if='noRecords' id="info">No records yet</p>
 
                         <div v-if='recordsFound' class="updateForm">
-                            <div class="tabsNavigation">
+                            <div class="create_new">
                                 <ul>
-                                    <li><a id="personal">personal information</a></li>
+                                    <li><a id="personal" class='active'>personal information</a></li>
                                     <li><a id="location">location information</a></li>
                                     <li><a id="general">general information</a></li>
                                     <li><a id="national">national information</a></li>

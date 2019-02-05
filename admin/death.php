@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Welcome - Death Records </title>
     <link rel="stylesheet" href="../assets/css/main.css">
+    <!-- Scriptings -->
+    <script src="../assets/js/vue.js"></script>    
+    <script src="../assets/js/axios.min.js"></script>
 </head>
 <body>
     <div id="app">
@@ -37,11 +40,16 @@
                             </div>                           
                         </div>
                     </div>
+
+                    <div class="mainDocs">
+                        <p id="informatant">{{message}}</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <script src="../assets/js/main.js"></script>
+    <script src='../admin/scripts/deathRecords.js'></script>
 </body>
 </html>
