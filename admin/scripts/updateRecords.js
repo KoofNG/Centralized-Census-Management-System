@@ -26,7 +26,9 @@ let vm = new Vue({
             for (let i = 0; i < vtabs.length; i++) {
                 vtabs[i].addEventListener('click', function (event) {
                     var e = event.target.id;
+                    document.querySelector('.updateForm a.active').classList.remove('active');
                     document.querySelector('div.active').classList.remove('active');
+                    this.classList.add('active');
                     document.querySelector('div#' + e).classList.add('active');
                 });
             }
