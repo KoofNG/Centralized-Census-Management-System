@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <!-- Javascript Dependencies -->
     <script src="./assets/js/vue.js"></script>
+    <script src="./assets/js/populateLga.js"></script>
 </head>
 
 <body>
@@ -149,20 +150,15 @@
                             <form action="">
                                 <div>
                                     <label for="stateOfOrigin">State of origin</label>
-                                    <select name="" v-model="stateOfOrigin">                                    
+                                    <select name="" id='state' v-model="stateOfOrigin">                                    
                                         <option value="" disabled></option>
                                         <option v-for="e in AvailableStates" v-bind:value="e">{{e}}</option>
                                     </select>
                                 </div>
                                 <div>
                                     <label for="lga">local government area</label>
-                                    <select name="lga" v-model="lga">
-                                        <option value="" disabled>LGA</option>                                        
-                                        <option value="ondo">Ondo</option>
-                                        <option value="owo">Owo</option>
-                                        <option value="akure">Akure</option>
-                                        <option value="akoko">Akoko</option>
-                                        <option value="oka">Oka</option>
+                                    <select name="lga" id='lga' v-model="lga">
+                                        <option value="" disabled>LGA</option>   
                                     </select>
                                 </div>
                                 <div>
@@ -372,6 +368,7 @@
     
     <script src="./assets/js/axios.min.js"></script>
     <script src="./assets/js/databinds.js"></script>
+
 </body>
 
 </html>
