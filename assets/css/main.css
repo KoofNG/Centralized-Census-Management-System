@@ -1013,6 +1013,7 @@ div#alertBox {
   -moz-transition: top 0.3s;
   -webkit-transition: top 0.5s;
   opacity: 1;
+  width: 245px;
 }
 div#alertBox.active {
   top: 50px;
@@ -1030,4 +1031,24 @@ p#error {
 .slide-fade-enter{
   transform: translateX(10px);
   opacity: 0;
+}
+
+div#alertBox>ul{
+  list-style: none;
+  display: block;
+  position: relative;
+}
+div#alertBox>ul>li+li{
+  margin: 2.5px 0;
+}
+div#alertBox>ul>li>p{
+  color: #ffffff;
+  font-family: 'Roboto-Light';
+  font-size: 12px;
+  text-transform: capitalize;
+}
+p.error--header{
+  color: #121212 !important;
+  font-weight: 600;
+  font-size: 13px;
 }

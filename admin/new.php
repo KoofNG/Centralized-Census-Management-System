@@ -26,15 +26,15 @@
             </div> 
             <div id="rightbar">    
                 <div id="loader"></div>    
-                <div id="alertBox">
 
-                    <ul id='ul'>
-                        <li v-for="(item, index) in required" :key="index">{{item}}</li>
+                <div id="alertBox">
+                    <ul id="ul" v-if='inComplete'>
+                        <li><p class='error--header'>The following are required</p></li>
+                        <li v-for="(item, index) in required" :key="index"><p>{{item}}</p></li>
                     </ul>
-                    
-                    <p id='error'>Provide Census card number</p>
-            
-                </div>            
+                            
+                </div>           
+
                 <div id="mainEnv">
                     <h3 class="section-header">Create new Registrant</h3>
                     <div class='create_new'>

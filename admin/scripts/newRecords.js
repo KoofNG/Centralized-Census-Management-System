@@ -20,6 +20,7 @@ var vm = new Vue({
     NIN: "",
     VIN: "",
     IPN: "",
+    inComplete: false,
     required: []
   },
 
@@ -39,31 +40,40 @@ var vm = new Vue({
     },
 
     newRegistrant: function() {
-      //document.getElementById("alertBox").classList.add("active");
-        var e = document.querySelectorAll("#ul>li");
-        var ul = document.getElementById("ul");
-        if(e.length != 0) {
-          setTimeout(() => {
-          for (let index = 0; index < e.length; index++) {
-            var element = e[index];
-            ul.removeChild(element);
-          }
-          document.getElementById("alertBox").classList.remove("active");
-        }, 500);
-        }
-        
-
+      if (this.required.length > 0) {
+        this.required.length = 0;
+      }
       var inputs = document.querySelectorAll(".create_new_form [required]");
       inputs.forEach(element => {
         if (element.value == "" || null) {
           this.required.push(element.name);
-        }
+        }    
       });
 
-      console.log(this.required.length)
 
-
+      if (this.required.length === 0){
+        
+      }
+    },      
       
+  },
+
+  watch: {
+    required: function () {
+      var e = document.querySelectorAll("#ul>li");
+      if (this.required.length != 0){
+        document.getElementById("alertBox").classList.add("active");
+        this.inComplete = true;
+        return (
+          setTimeout(() => {   
+            document.getElementById("alertBox").classList.remove("active");
+            for (let index = 0; index < e.length; index++) {
+              var element = e[index];
+              document.getElementById("ul").removeChild(element);
+            }
+            this.inComplete = false;
+        }, 2000));
+      }
     }
   },
 
