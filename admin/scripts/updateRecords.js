@@ -102,7 +102,7 @@ let vm = new Vue({
   },
 
   watch: {
-    cardNo: function() {
+    cardNo: function () {
       return (document.querySelector("#cardno").classList.remove("error"));
     }
   }
