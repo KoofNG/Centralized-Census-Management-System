@@ -52,7 +52,7 @@ var vm = new Vue({
 
 
       if (this.required.length === 0){
-        
+        console.log('Submit form here')
       }
     },      
       

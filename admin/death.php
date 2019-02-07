@@ -24,7 +24,9 @@
             <div id="sidebar">
                 <?php require_once('./pages/navigation.php')?>
             </div> 
-            <div id="rightbar">            
+            <div id="rightbar">                 
+                <div id="loader"></div>    
+                <div id="alertBox"><p id='error'>Provide Census card number</p></div>           
                 <div id="mainEnv">
                     <div class="searchForms">
                         <p class="heading">Find User Record</p>
@@ -33,16 +35,46 @@
                                 <input type="text" name="lastname" id="lastname" placeholder='Last Name'>
                             </div>
                             <div class="userCardNo">
-                                <input type="text" name="cardno" id="cardno" placeholder='Card No.'>
+                                <input type="text" name="cardno" v-model='searchCardNo' id="cardno" placeholder='Card No.'>
                             </div> 
                             <div id="buttons">
-                                <button id='searchUser' type="submit">Search <span></span></button>
+                                <button id='searchUser' @click='findUser' type="submit">Search <span></span></button>
                             </div>                           
                         </div>
                     </div>
 
-                    <div class="mainDocs">
-                        <p id="informatant">{{message}}</p>
+                    <div class="mainDocs">                        
+                        <p v-if='noRecords' class="heading" id="info">No records yet</p>
+                        <transition name='slide-fade'>
+                            <div v-if="recordsFound" class="deathForm">                                
+                                <p class="heading">User record found</p>
+                                <form @submit.prevent='updateDeathRecord' action="">                                    
+                                    <div>
+                                        <label for="cardno">Census Card Number</label>
+                                        <input type="text" id='cardno' v-model='cardNo'>
+                                    </div>
+                                    <div>
+                                        <label for="fname">full name</label>
+                                        <input type="text" id='fname' v-model='fullName'>
+                                    </div>
+                                    <div>
+                                        <label for="dob">date of birth</label>
+                                        <input type="date" id='dob' v-model='dob'>
+                                    </div>
+                                    <div>
+                                        <label for="dod">date of death</label>
+                                        <input type="date" id='dod' v-model='dod'>
+                                    </div>
+                                    <div>
+                                        <label for="tod">time of death</label>
+                                        <input type="time" id='tod' name="" id="" v-model='tod'>
+                                    </div>
+                                    <div id="update">
+                                        <button type="submit">Update User</button>
+                                    </div>
+                                </form>
+                            </div>                        
+                        </transition> 
                     </div>
                 </div>
             </div>

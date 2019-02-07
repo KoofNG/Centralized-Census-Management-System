@@ -1052,3 +1052,32 @@ p.error--header{
   font-weight: 600;
   font-size: 13px;
 }
+
+form>div:nth-child(odd){
+  margin: 4px 0;
+}
+form>div>label{
+  width: 100%;
+  display: block;
+  position: relative;
+  padding: 2.25px 0;
+  margin: 0;
+  text-transform: capitalize;
+  color: var(--littleP);
+  font-family: "Roboto-Regular";
+  font-size: 14px;
+}
+form>div>input,
+form>div>select{
+  width: 450px;
+  height: 40px;
+  border-radius: 4px;
+  display: block;
+  border: 1px solid #cccccc;
+  outline: none;
+  background-color: transparent;
+  padding: 6.5px 10px;
+  font-size: 14px;
+  font-family: "Roboto-Light";
+  text-transform: capitalize;
+}
