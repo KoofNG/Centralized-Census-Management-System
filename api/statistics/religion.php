@@ -26,7 +26,6 @@
         $result1 = $stmt1->rowCount();
         $result2 = $stmt2->rowCount();
         $result3 = $stmt3->rowCount();
-        echo 'Successful connection';
     } catch (PDOException $e) {
         echo 'Connection Unsuccessful: ' . $e->getMessage();
     }    
