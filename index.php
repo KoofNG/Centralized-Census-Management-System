@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <!-- Javascript Dependencies -->
     <script src="./assets/js/vue.js"></script>
-    <script src="./assets/js/populateLga.js"></script>
 </head>
 
 <body>
@@ -368,6 +367,7 @@
     
     <script src="./assets/js/axios.min.js"></script>
     <script src="./assets/js/databinds.js"></script>
+    <script src="./assets/js/populateLga.js"></script>
 
 </body>
 

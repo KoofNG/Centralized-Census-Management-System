@@ -86,7 +86,8 @@ let mainApp = new Vue({
         },
 
         validateLocation: function () {
-            if ((this.stateOfOrigin && this.lga && this.hometown) == '') {
+            //this.stateOfOrigin && this.lga && this.hometown) == ''
+            if ((this.stateOfOrigin && this.hometown) == '') {
                 this.popAlert();
             } else {
                 this.growthBar = this.growthBar + 25.0;
