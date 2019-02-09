@@ -36,6 +36,9 @@ body {
   height: 100vh;
   width: 100%;
   position: relative;
+  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 div#app {
@@ -1080,4 +1083,143 @@ form>div>select{
   font-size: 14px;
   font-family: "Roboto-Light";
   text-transform: capitalize;
+}
+
+
+/* Dash board Page */
+.dash{
+  border-bottom: none !important;
+}
+div.row-card{
+  height: 175px;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  margin-bottom: 20px;
+}
+div.row-card div{
+  border-radius: 4px;
+  background-position: 50% 50%;
+  background-size: cover;
+  position: relative;
+  display: block;
+  padding: 20px 0;
+}
+div.row-card div::before{
+  height: 75px;
+  width: 75px;
+  text-align: center;
+  padding: 17px 0;
+  border-radius: 50%;
+  position: absolute;
+  content: '\f0c0';
+  font-family: 'Font-Awesome';
+  color: #cccccc;
+  font-size: 44px;
+  background: transparent;
+  display: block;
+  right: 15px;
+  bottom: 15px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+
+div.card-one{
+  background: url(../images/1.jpg) no-repeat;
+}
+div.card-one div::before{
+
+}
+div.card-two{
+  background: url(../images/2.jpg) no-repeat;
+}
+div.card-three{
+  background: url(../images/3.jpg) no-repeat;
+}
+
+
+
+p#data{
+  padding: 0px 10px;
+  font-family: 'Roboto-Regular';
+  font-size: 42px;
+  font-weight: 700;
+  color: #ffffff;
+}
+p#data-caption{
+  padding: 0px 10px;
+  font-family: 'Roboto-Regular';
+  font-size: 24px;
+  color: #ffffff;
+}
+
+div.information-row{
+  height: auto;
+  width: auto;
+  padding: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  border-left: 3px solid #ffa037;
+  -webkit-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.03);
+  -moz-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.03);
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.03);
+}
+
+div.information-row>p{
+  width: auto !important;
+  height: auto;
+  display: block;
+  float: left;
+  position: relative;
+  color: #121212;
+  font-family: 'Roboto-Regular';
+  font-size: 14px;
+  font-weight: normal;
+  text-transform: capitalize;
+  padding: 5px 10px;
+}
+div.information-row>p:nth-child(even) {
+  margin: 0 15px;
+}
+div.information-row>p:nth-child(1) {
+  background-color: #f2f2f2;
+  width: 200px !important;
+  text-align: center;
+}
+
+div.statistics-card{
+  height: 450px;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  margin: 12.5px 0;
+}
+
+div.statistics-card div{
+  border-radius: 4px;
+  background: #ffffff;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.08);  
+  -webkit-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.08);
+}
+
+div.statistics-card canvas{
+  position: relative;
+  bottom: 0 !important;
+  margin: 0 auto;
+  width: 300px !important;
+  height: auto !important;
+  display: block;
+  border-radius: 4px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }

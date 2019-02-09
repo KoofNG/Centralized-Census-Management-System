@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Welcome - Index</title>
     <link rel="stylesheet" href="../assets/css/main.css">
+    <!-- Scriptings -->
+    <script src="../assets/js/vue.js"></script>    
+    <script src="../assets/js/axios.min.js"></script>
 </head>
 <body>
     <div id="app">
@@ -22,11 +25,47 @@
                 <?php require_once('./pages/navigation.php')?>
             </div> 
             <div id="rightbar">            
-                <div id="mainEnv"></div>
+                <div id="mainEnv">
+                    <p class="heading dash">Overview</p>
+                    <div class="row-card">
+                        <div class='card-one'>
+                            <p id="data">{{registeredCitizens}}</p>
+                            <p id='data-caption'>Registered Citizens</p>
+                        </div>
+                        <div class='card-two'></div>
+                        <div class='card-three'></div>
+                    </div>
+
+                    <p class="heading dash">Newly Registered Citizen</p>
+                    <div class="information-row">
+                        <tr>
+                            <p>ONDOCC000{{recentRegistered.userId}}</p>
+                            <p>{{recentRegistered.fullName}}</p>
+                            <p>{{recentRegistered.age}}</p>
+                            <p>{{recentRegistered.gender}}</p>
+                            <p>{{recentRegistered.stateOfOrigin}}</p>
+                            <p>{{recentRegistered.lga}}</p>
+                        </tr>
+                    </div>
+
+
+                    <p class="heading dash">Statistics</p>
+                    <div class='statistics-card'>
+                        <div><canvas id='gender'></canvas></div>
+                        <div><canvas id='age'></canvas></div> 
+                        <div><canvas id='occupation'></canvas></div>                     
+                    </div>          
+                    <div class="statistics-card">                        
+                        <div><canvas id='religion'></canvas></div>    
+                    </div>     
+                </div>
             </div>
         </div>
     </div>
 
     <script src="../assets/js/main.js"></script>
+    <script src='../assets/js/Chart.js'></script>
+    <script src='../admin/scripts/dashboard.js'></script><!-- 
+    <script src='../admin/scripts/test.js'></script> -->
 </body>
 </html>
