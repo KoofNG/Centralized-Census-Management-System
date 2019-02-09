@@ -25,11 +25,17 @@
 
         $stmt1 = $conn->prepare('SELECT * FROM ' . $table .'');
         $LastRegistered = $conn->prepare('SELECT * FROM ' . $table . ' ORDER BY userId DESC LIMIT 1');
-
+        $indigene = $conn->prepare('SELECT * FROM ' . $table . ' WHERE stateOfOrigin = "ondo"');
+        $nonIndigene = $conn->prepare('SELECT * FROM ' . $table . ' WHERE stateOfOrigin != "ondo"');
+        
         $stmt1->execute();
         $LastRegistered->execute();
+        $indigene->execute();
+        $nonIndigene->execute();
 
         $result1 = $stmt1->rowCount();
+        $in = $indigene->rowCount();
+        $non = $nonIndigene->rowCount();
         $row = $LastRegistered->fetch(PDO::FETCH_ASSOC);
 
         $userID = $row['userId'];
@@ -55,7 +61,9 @@
 
 
     $data = array(
-        'Student' => $result1,
+        'totalRegistered' => $result1,
+        'indigene' => $in,
+        'nonIndigene' => $non,
         'newUser' => $newUser
     ); 
 

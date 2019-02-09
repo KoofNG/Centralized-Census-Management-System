@@ -32,8 +32,14 @@
                             <p id="data">{{registeredCitizens}}</p>
                             <p id='data-caption'>Registered Citizens</p>
                         </div>
-                        <div class='card-two'></div>
-                        <div class='card-three'></div>
+                        <div class='card-two'>
+                            <p id="data">{{indigene}}</p>
+                            <p id='data-caption'>Indigene Citizens</p>
+                        </div>
+                        <div class='card-three'>
+                            <p id="data">{{nonIndigene}}</p>
+                            <p id='data-caption'>Non-Indigene Citizens</p>
+                        </div>
                     </div>
 
                     <p class="heading dash">Newly Registered Citizen</p>

@@ -1115,7 +1115,7 @@ div.row-card div::before{
   position: absolute;
   content: '\f0c0';
   font-family: 'Font-Awesome';
-  color: #cccccc;
+  color: #ffffff;
   font-size: 44px;
   background: transparent;
   display: block;
@@ -1152,7 +1152,7 @@ p#data-caption{
   padding: 0px 10px;
   font-family: 'Roboto-Regular';
   font-size: 24px;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.8)
 }
 
 div.information-row{
@@ -1194,7 +1194,7 @@ div.information-row>p:nth-child(1) {
 }
 
 div.statistics-card{
-  height: 450px;
+  height: 400px;
   position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);

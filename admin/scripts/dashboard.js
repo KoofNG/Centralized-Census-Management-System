@@ -2,6 +2,8 @@ var vm = new Vue({
   el: "#app",
   data: {
     registeredCitizens: "",
+    indigene: '',
+    nonIndigene: '',
     recentRegistered: {
       fullName: "",
       age: "",
@@ -25,7 +27,9 @@ var vm = new Vue({
           "http://localhost/Centralized-Census-Management-System/api/statistics/dashboard.php"
         )
         .then(response => {
-          this.registeredCitizens = response.data.Student;
+          this.registeredCitizens = response.data.totalRegistered;
+          this.indigene = response.data.indigene;
+          this.nonIndigene = response.data.nonIndigene;
           this.recentRegistered.fullName = response.data.newUser.fullName;
           this.recentRegistered.age = response.data.newUser.age;
           this.recentRegistered.gender = response.data.newUser.gender;
