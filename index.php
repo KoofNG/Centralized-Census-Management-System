@@ -88,14 +88,14 @@
                         <h3>ONDO-CCBS</h3>
                     </div>
                     <div class="mainContent">
-                        <h1>Getting Censused made easy.</h1>
+                        <h1>Censused made easy.</h1>
                         <h4>Join millions in getting registered today.</h4>
                     </div>
                     <div class="action_button">
                         <button type="submit" v-on:click="getStarted">Get Started</button>
                     </div>
                 </div>
-                <div class="wrap_form" v-if="isStarted">
+                <div class="wrap-form" v-if="isStarted">
                     <div id="alert" class="alert">
                         <p id="msgAlert">Whats up guy</p>
                     </div>
@@ -113,11 +113,11 @@
                             </div>
                             <form action="">
                                 <div>
-                                    <label for="fullName">Full Name</label>
+                                    <label for="fullName">Full Name</label><span id="required">*</span>
                                     <input type="text" v-model="fullName" name="fn" id="fullName" placeholder="Full Name">
                                 </div>
                                 <div>
-                                    <label for="DOB">Date of birth</label>
+                                    <label for="DOB">Date of birth</label><span id="required">*</span>
                                     <input type="date" v-on:change="changeDOB" v-model="dob" name="dob" id="DOB">
                                 </div>
                                 <div>
@@ -125,7 +125,7 @@
                                     <input type="number" disabled v-model="age" name="age" id="age">
                                 </div>
                                 <div>
-                                    <label for="gender">Gender</label>
+                                    <label for="gender">Gender</label><span id="required">*</span>
                                     <select name="gender" v-model="gender" id="gender">
                                         <option value="" disabled>Gender</option>
                                         <option value="Female">Female</option>
@@ -133,7 +133,7 @@
                                     </select>
                                 </div>
                                 <div>
-                                    <label for="homeAddress">Home Address</label>
+                                    <label for="homeAddress">Home Address</label><span id="required">*</span>
                                     <input type="text" v-model="homeAddress" name="" placeholder="eg: !2 Rufus Giwa, Way">
                                 </div>                                
                             </form>
@@ -148,20 +148,21 @@
                             </div>
                             <form action="">
                                 <div>
-                                    <label for="stateOfOrigin">State of origin</label>
-                                    <select name="" id='state' v-model="stateOfOrigin">                                    
+                                    <label for="stateOfOrigin">State of origin</label><span id="required">*</span>
+                                    <select name="" v-on:change="getLGA"  id='state' v-model="stateOfOrigin">                                    
                                         <option value="" disabled></option>
                                         <option v-for="e in AvailableStates" v-bind:value="e">{{e}}</option>
                                     </select>
                                 </div>
                                 <div>
-                                    <label for="lga">local government area</label>
+                                    <label for="lga">local government area</label><span id="required">*</span>
                                     <select name="lga" id='lga' v-model="lga">
                                         <option value="" disabled>LGA</option>   
+                                        <option v-for="e in stateLGAs" v-bind:value="e">{{e}}</option>
                                     </select>
                                 </div>
                                 <div>
-                                    <label for="">Hometown</label>
+                                    <label for="">Hometown</label><span id="required">*</span>
                                     <input type="text" name="" v-model="hometown" id="" placeholder="eg: owo">
                                 </div>
                                 <div>
@@ -191,17 +192,12 @@
                             </div>
                             <form action="">
                                 <div>
-                                    <label for="ethnicGroup">Ethnic Group</label>
-                                    <select name="ethnic" v-model="ethnicGroup" id="ethnicGroup">
-                                        <option value="" disabled>Ethnic Group</option>
-                                        <option value="yoruba">Yoruba</option>
-                                        <option value="ikale">Ikale</option>
-                                        <option value="ilaje">Ilaje</option>
-                                    </select>
+                                    <label for="ethnicGroup">Ethnic Group</label><span id="required">*</span>
+                                    <input type="text" name="" id="" v-model="ethnicGroup" id="ethnicGroup" placeholder='Ethnic group'>
                                 </div>
                                 <div>
-                                    <label for="religion">Religion</label>
-                                    <select name="religion" v-model="religion" id="religion">
+                                    <label for="religion">Religion</label><span id="required">*</span>
+                                    <select name="religion" v-model="religion" required='required' id="religion">
                                         <option value="" disabled>Religion</option>
                                         <option value="christian">Christianity</option>
                                         <option value="islam">Islam</option>
@@ -367,7 +363,6 @@
     
     <script src="./assets/js/axios.min.js"></script>
     <script src="./assets/js/databinds.js"></script>
-    <script src="./assets/js/populateLga.js"></script>
 
 </body>
 

@@ -81,8 +81,8 @@ div.content{
     height: auto;
     width: 100%;
     padding: 40px 0;
-    top: 40%; 
-    transform: translateY(-60%);
+    top: 50%; 
+    transform: translateY(-50%);
     position: relative;
     z-index: 1000;
 }
@@ -108,7 +108,7 @@ div.brandName{
     height: 50px;
     margin: 7.5px auto;
     position: relative;
-    display: block;
+    display: inline-block;
     text-align: center;
     padding: 10px 20px;
 }
@@ -224,12 +224,16 @@ div#loader.show{
     100% { transform: rotate(360deg); }
 }
 
-div.wrap_form{
+div.wrap-form{
     height: 100vh;
     width: 100%;
     display: block;
     position: relative;
     padding: 40px 0;
+    transition: opacity 300ms;
+}
+div.wrap-form.active{
+    opacity: 1;
 }
 
 div#image_section{
@@ -334,7 +338,7 @@ div.tab>form>div>label{
     height: auto;
     padding: 2px 0;
     color: #121212;
-    display: block;
+    /* display: block; */
     position: relative;
     font-family: "Roboto-Regular";
     font-weight: 600;
@@ -403,23 +407,24 @@ div.btn_group>button:hover{
 div.alert{
     height: auto;
     width: 250px;
-    background-color: #d4edda;
-    border-radius: 20px;
     display: block;
+    opacity: 0;
     position: absolute;
-    padding: 7.5px 15px;
+    padding: 15px 5px;
     margin: 0 auto;
     left: 0;
     right: 0;
     top: -100px;
     z-index: 3;
-    transition: top 1000ms;
+    transition: all 1000ms;
+    background-color: #dc3545;
 }
 div.alert.active{
     top: 30px;
+    opacity: 1;
 }
 p#msgAlert{
-    color: #ff0000;
+    color: #fff;
     font-family: 'Roboto-Regular';
     font-size: 14px;
     font-weight: 400;
@@ -729,4 +734,10 @@ div.loader>div{
 div.loader>div.active{
     border: 1px solid rgba(255,165,0,1);
     background-color: rgba(255,165,0,1);
+}
+
+
+span#required{
+    color: #ff0000;
+    margin-left: 3px;
 }

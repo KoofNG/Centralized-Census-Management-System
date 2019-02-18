@@ -51,15 +51,15 @@
                                 <form @submit.prevent='updateDeathRecord' action="">                                    
                                     <div>
                                         <label for="cardno">Census Card Number</label>
-                                        <input type="text" id='cardno' v-model='cardNo'>
+                                        <input type="text" disabled id='cardno' v-bind:value='cardNo'>
                                     </div>
                                     <div>
                                         <label for="fname">full name</label>
-                                        <input type="text" id='fname' v-model='fullName'>
+                                        <input type="text" disabled id='fname' v-bind:value='fullName'>
                                     </div>
                                     <div>
                                         <label for="dob">date of birth</label>
-                                        <input type="date" id='dob' v-model='dob'>
+                                        <input type="date" disabled id='dob' v-bind:value='dob'>
                                     </div>
                                     <div>
                                         <label for="dod">date of death</label>
