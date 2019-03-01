@@ -15,10 +15,10 @@
     //Instantiate Post
     $updateSingleUser = new RegisteredUsers($db);
 
-    //Get the Raw Posted Data
+        //Get the Raw Posted Data
     $data = json_decode(file_get_contents("php://input"));
 
-    $updateSingleUser->userId = str_pad($data->userId, 4, '0', STR_PAD_LEFT);
+    $updateSingleUser->userID = $data->userId;
     $updateSingleUser->fullName = $data->fullName;
     $updateSingleUser->dob = $data->dob;
     $updateSingleUser->age = $data->age;
@@ -33,7 +33,6 @@
     $updateSingleUser->occupation = $data->occupation;
     $updateSingleUser->phoneNumber = $data->phoneNumber;
     $updateSingleUser->email = $data->email;
-    $updateSingleUser->profilePicture = $data->profilePicture;
     $updateSingleUser->homeAddress = $data->homeAddress;
     $updateSingleUser->bvn = $data->bvn;
     $updateSingleUser->nim = $data->nim;

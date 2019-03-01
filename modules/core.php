@@ -5,6 +5,7 @@
         private $table = 'tbl_registered_citizens';
 
         //USER Properties
+        public $userID;
         public $fullName;
         public $dob;
         public $age;
@@ -73,6 +74,11 @@
             $this->phoneNumber = $row['phoneNumber'];
             $this->email = $row['email'];
             $this->profilePicture = $row['profilePicture'];
+            $this->homeAddress = $row['homeAddress'];
+            $this->bvn = $row['BVN'];
+            $this->nim = $row['NIM'];
+            $this->vin = $row['VIN'];
+            $this->passportNumber = $row['passportNumber'];
         }
 
         //Register a User
@@ -120,9 +126,9 @@
             $this->phoneNumber = htmlspecialchars(strip_tags($this->phoneNumber));
             $this->email = htmlspecialchars(strip_tags($this->email));
             $this->homeAddress = htmlspecialchars(strip_tags($this->homeAddress));
-            $this->BVN = htmlspecialchars(strip_tags($this->BVN));
-            $this->NIM = htmlspecialchars(strip_tags($this->NIM));
-            $this->VIN = htmlspecialchars(strip_tags($this->VIN));
+            $this->bvn = htmlspecialchars(strip_tags($this->bvn));
+            $this->nim = htmlspecialchars(strip_tags($this->NIM));
+            $this->vin = htmlspecialchars(strip_tags($this->VIN));
             $this->passportNumber = htmlspecialchars(strip_tags($this->passportNumber));
             $this->profilePicture = htmlspecialchars(strip_tags($this->profilePicture));
 
@@ -142,9 +148,9 @@
             $stmt->bindParam(':phoneNumber', $this->phoneNumber);
             $stmt->bindParam(':email', $this->email);
             $stmt->bindParam(':homeAddress',$this->homeAddress);
-            $stmt->bindParam(':BVN',$this->BVN);
-            $stmt->bindParam(':NIM',$this->NIM);
-            $stmt->bindParam(':VIN',$this->VIN);
+            $stmt->bindParam(':bvn',$this->bvn);
+            $stmt->bindParam(':nim',$this->nim);
+            $stmt->bindParam(':vin',$this->vin);
             $stmt->bindParam(':passportNumber',$this->passportNumber);
             $stmt->bindParam(':profilePicture', $this->profilePicture);
 
@@ -164,7 +170,7 @@
         //Update Post
         public function UpdateUser(){
             //Create Query
-            $query = 'UPDATE ' .$this->table . '
+            $query = "UPDATE " .$this->table . "
               SET 
                fullName = :fullName,
                dob = :dob,
@@ -180,19 +186,17 @@
                occupation = :occupation, 
                phoneNumber = :phoneNumber,
                email = :email,
-               profilePicture = :profilePicture,
                homeAddress = :homeAddress,
-               bvn = :bvn,
-               nim = :nim,
-               vin = :vin,
-               passportNumber = :passportNumber,
-            WHERE userId = :userId';
+               BVN = :bvn,
+               NIM = :nim,
+               VIN = :vin,
+               passportNumber = :passportNumber
+             WHERE userId = :userID"; 
 
             //Prepare Statement
             $stmt = $this->conn->prepare($query);
-
             //Clean Data
-            $this->userId = htmlspecialchars(strip_tags($this->userId));
+            $this->userID = htmlspecialchars(strip_tags($this->userID));
             $this->fullName = htmlspecialchars(strip_tags($this->fullName));
             $this->dob = htmlspecialchars(strip_tags($this->dob));
             $this->age = htmlspecialchars(strip_tags($this->age));
@@ -207,7 +211,6 @@
             $this->occupation = htmlspecialchars(strip_tags($this->occupation));
             $this->phoneNumber = htmlspecialchars(strip_tags($this->phoneNumber));
             $this->email = htmlspecialchars(strip_tags($this->email));
-            $this->profilePicture = htmlspecialchars(strip_tags($this->profilePicture));
             $this->homeAddress = htmlspecialchars(strip_tags($this->homeAddress));
             $this->bvn = htmlspecialchars(strip_tags($this->bvn));
             $this->nim = htmlspecialchars(strip_tags($this->nim));
@@ -216,7 +219,7 @@
 
 
             //Bind Data
-            $stmt->bindParam(':userId', $this->userId);
+            $stmt->bindParam(':userID', $this->userID);
             $stmt->bindParam(':fullName', $this->fullName);
             $stmt->bindParam(':dob', $this->dob);
             $stmt->bindParam(':age', $this->age);
@@ -231,7 +234,6 @@
             $stmt->bindParam(':occupation', $this->occupation);
             $stmt->bindParam(':phoneNumber', $this->phoneNumber);
             $stmt->bindParam(':email', $this->email);
-            $stmt->bindParam(':profilePicture', $this->profilePicture);
             $stmt->bindParam(':homeAddress', $this->homeAddress);
             $stmt->bindParam(':bvn', $this->bvn);
             $stmt->bindParam(':nim', $this->nim);

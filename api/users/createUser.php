@@ -32,9 +32,9 @@
     $createNewUser->phoneNumber = $userData->phoneNumber;
     $createNewUser->email = $userData->email;
     $createNewUser->homeAddress = $userData->homeAddress;
-    $createNewUser->BVN = $userData->BVN;
-    $createNewUser->NIM = $userData->NIM;
-    $createNewUser->VIN = $userData->VIN;
+    $createNewUser->bvn = $userData->bvn;
+    $createNewUser->nim = $userData->nim;
+    $createNewUser->vin = $userData->vin;
     $createNewUser->passportNumber = $userData->passportNumber;
     $createNewUser->profilePicture = $userData->profilePicture;
 

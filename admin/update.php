@@ -62,7 +62,11 @@
                                     </div>
                                     <div>
                                         <label for="">date of birth</label>
-                                        <input type="date" v-model='dob'>
+                                        <input type="date" v-on:change="changeDOB" v-model='dob'>
+                                    </div>
+                                    <div>
+                                        <label for="age">Age</label>
+                                        <input type="number" disabled v-model="age" name="age" id="age">
                                     </div>
                                     <div>
                                         <label for="">gender</label>
@@ -74,21 +78,23 @@
                                     </div>
                                     <div>
                                         <label for="">home address</label>
-                                        <input type="text">
+                                        <input type="text" v-model="homeAddress">
                                     </div>
                                 </div>
                                 <div id="location">
                                     <div>
                                         <label for="">state of origin</label>
-                                        <select name="" v-model='stateOfOrigin' id="">
+                                        <select name="" v-on:change="getLGA" v-model='stateOfOrigin' id="">
                                             <option value disabled>Choose State</option>
                                             <option v-for="(item, index) in AvailableStates" :key="index" v-bind:value="item">{{item}}</option>
-
                                         </select>
                                     </div>
                                     <div>
                                         <label for="">local government area</label>
-                                        <select name="" v-model='lga' id=""></select>
+                                        <select name="" v-model='lga' id="">                                        
+                                            <option value="" disabled>LGA</option>   
+                                            <option v-for="e in stateLGAs" v-bind:value="e">{{e}}</option>
+                                        </select>
                                     </div>
                                     <div>
                                         <label for="">home town</label>
@@ -112,15 +118,26 @@
                                 <div id="general">
                                     <div>
                                         <label for="">ethnic group</label>
-                                        <select name="" id="" v-model='ethnicGroup'></select>
+                                        <input type="text" name="" id="" v-model='ethnicGroup'>
                                     </div>
                                     <div>
                                         <label for="">religion</label>
-                                        <select name="" id="" v-model='religion'></select>
+                                        <select name="" id="" v-model='religion'>
+                                            <option value="" disabled>Religion</option>
+                                            <option value="christian">Christianity</option>
+                                            <option value="islam">Islam</option>
+                                            <option value="others">Others</option>
+                                        </select>
                                     </div>
                                     <div>
                                         <label for="">occupation</label>
-                                        <select name="" id="" v-model='occupation'></select>
+                                        <select name="" id="" v-model='occupation'>
+                                            <option value="" disabled>Occupation</option>
+                                            <option value="student">Student</option>
+                                            <option value="business">Business</option>
+                                            <option value="teacher">Teacher</option>
+                                            <option value="military">Militiary Personnel</option>
+                                        </select>
                                     </div>
                                     <div>
                                         <label for="">phone number</label>
@@ -134,23 +151,23 @@
                                 <div id="national">
                                     <div>
                                         <label for="">bank verification number</label>
-                                        <input type="text">
+                                        <input type="text" v-model="bvn">
                                     </div>
                                     <div>
                                         <label for="">national identification number</label>
-                                        <input type="text">
+                                        <input type="text" v-model="nin">
                                     </div>
                                     <div>
                                         <label for="">voters identification number</label>
-                                        <input type="text">
+                                        <input type="text" v-model="vin">
                                     </div>
                                     <div>
                                         <label for="">international passport number</label>
-                                        <input type="text">
+                                        <input type="text" v-model="passNum">
                                     </div>
                                 </div> 
                                 <div id="update">
-                                    <button type="submit">Update User</button>
+                                    <button type="submit" v-on:click='updateUser'>Update User</button>
                                 </div>
                             </div>
                         </transition>                        

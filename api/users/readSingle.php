@@ -37,6 +37,11 @@
         'phoneNumber' => $singleUser->phoneNumber,
         'email' => $singleUser->email,
         'profilePicture' => $singleUser->profilePicture,
+        'homeAddress' => $singleUser->homeAddress,
+        'bvn' => $singleUser->bvn,
+        'nim' => $singleUser->nim,
+        'vin' => $singleUser->vin,
+        'passportNumber' => $singleUser->passportNumber,
     ); 
 
     //Making a Single Json Object

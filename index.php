@@ -148,7 +148,7 @@
                             <form action="">
                                 <div>
                                     <label for="stateOfOrigin">State of origin</label><span id="required">*</span>
-                                    <select name="" v-on:change="getLGA"  id='state' v-model="stateOfOrigin">                                    
+                                    <select name="" v-on:change="getLGA" id='state' v-model="stateOfOrigin">                                    
                                         <option value="" disabled></option>
                                         <option v-for="e in AvailableStates" v-bind:value="e">{{e}}</option>
                                     </select>
