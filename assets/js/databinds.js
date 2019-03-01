@@ -280,13 +280,10 @@ let mainApp = new Vue({
     setImage: function() {
       var file = document.querySelector("input[type=file]").files[0];
       if (/\.(jpe?g|png|gif)$/i.test(file.name)) {
-        console.log(file.name);
-        //this.profilePicture = window.URL.createObjectURL(file);
-        this.profilePicture = file.name
-        console.log(this.profilePicture);
+        this.profilePicture = window.URL.createObjectURL(file);
       } else {
         console.log('invalid file type')
-      }
+      } 
     }
   },
 

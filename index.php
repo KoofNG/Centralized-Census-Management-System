@@ -11,8 +11,7 @@
     <script src="./assets/js/vue.js"></script>
 </head>
 
-<body>
-    
+<body>    
     <div id="app">
         <div class="wrapper">
             <!-- Cover Layer -->

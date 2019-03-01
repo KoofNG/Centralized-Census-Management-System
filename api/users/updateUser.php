@@ -34,6 +34,11 @@
     $updateSingleUser->phoneNumber = $data->phoneNumber;
     $updateSingleUser->email = $data->email;
     $updateSingleUser->profilePicture = $data->profilePicture;
+    $updateSingleUser->homeAddress = $data->homeAddress;
+    $updateSingleUser->bvn = $data->bvn;
+    $updateSingleUser->nim = $data->nim;
+    $updateSingleUser->vin = $data->vin;
+    $updateSingleUser->passportNumber = $data->passportNumber;
 
 
     //Create User

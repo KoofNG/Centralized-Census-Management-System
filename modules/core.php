@@ -1,9 +1,9 @@
 <?php
-
     class RegisteredUsers{
         //DB STUFF
         private $conn;
         private $table = 'tbl_registered_citizens';
+
         //USER Properties
         public $fullName;
         public $dob;
@@ -21,10 +21,12 @@
         public $email;
         public $profilePicture;
         public $homeAddress;
-        public $BVN;
-        public $NIM;
-        public $VIN;
+        public $bvn;
+        public $nim;
+        public $vin;
         public $passportNumber;
+        public $dateOfDeath;
+        public $timeOfDeath;
 
         //Constructor with DB
         public function __construct($db){
@@ -178,13 +180,19 @@
                occupation = :occupation, 
                phoneNumber = :phoneNumber,
                email = :email,
-               profilePicture = :profilePicture
+               profilePicture = :profilePicture,
+               homeAddress = :homeAddress,
+               bvn = :bvn,
+               nim = :nim,
+               vin = :vin,
+               passportNumber = :passportNumber,
             WHERE userId = :userId';
 
             //Prepare Statement
             $stmt = $this->conn->prepare($query);
 
             //Clean Data
+            $this->userId = htmlspecialchars(strip_tags($this->userId));
             $this->fullName = htmlspecialchars(strip_tags($this->fullName));
             $this->dob = htmlspecialchars(strip_tags($this->dob));
             $this->age = htmlspecialchars(strip_tags($this->age));
@@ -200,10 +208,15 @@
             $this->phoneNumber = htmlspecialchars(strip_tags($this->phoneNumber));
             $this->email = htmlspecialchars(strip_tags($this->email));
             $this->profilePicture = htmlspecialchars(strip_tags($this->profilePicture));
-            $this->userId = htmlspecialchars(strip_tags($this->userId));
+            $this->homeAddress = htmlspecialchars(strip_tags($this->homeAddress));
+            $this->bvn = htmlspecialchars(strip_tags($this->bvn));
+            $this->nim = htmlspecialchars(strip_tags($this->nim));
+            $this->vin = htmlspecialchars(strip_tags($this->vin));
+            $this->passportNumber = htmlspecialchars(strip_tags($this->passportNumber));
 
 
             //Bind Data
+            $stmt->bindParam(':userId', $this->userId);
             $stmt->bindParam(':fullName', $this->fullName);
             $stmt->bindParam(':dob', $this->dob);
             $stmt->bindParam(':age', $this->age);
@@ -219,7 +232,11 @@
             $stmt->bindParam(':phoneNumber', $this->phoneNumber);
             $stmt->bindParam(':email', $this->email);
             $stmt->bindParam(':profilePicture', $this->profilePicture);
-            $stmt->bindParam(':userId', $this->userId);
+            $stmt->bindParam(':homeAddress', $this->homeAddress);
+            $stmt->bindParam(':bvn', $this->bvn);
+            $stmt->bindParam(':nim', $this->nim);
+            $stmt->bindParam(':vin', $this->vin);
+            $stmt->bindParam(':passportNumber', $this->passportNumber);
 
             //Execute Query
 
